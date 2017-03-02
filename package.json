@@ -1,0 +1,25 @@
+{
+  "name": "node-mock",
+  "version": "1.0.0",
+  "description": "mock系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tianxiangbing/node-mock.git"
+  },
+  "author": "tianxiangbing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tianxiangbing/node-mock/issues"
+  },
+  "homepage": "https://github.com/tianxiangbing/node-mock#readme",
+  "devDependencies": {
+    "express": "^4.15.0",
+    "jquery": "^3.1.1",
+    "opn": "^4.0.2"
+  }
+}

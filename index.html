@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node-mock系统</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+</head>
+<body>
+    <table class="container">
+        <tr>
+            <td><span class="title">端口号：</span></td>
+            <td><input type="number" class="number" id="port" value="8080"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" id="btn_addimport" value="添加模拟接口"/></td>
+        </tr>
+        <tr>
+            <td><span class="title" id="tips"></span></td>
+            <td><input type="button" value="开始" id="btn_start"/><input type="button" value="停止" id="btn_stop"/>
+            <!--<input type="button" id="btn_browser" value="在浏览器中打开"/>-->
+            </td>
+        </tr>
+    </table>
+    <script src="src/js/index.js"></script>
+</body>
+</html>

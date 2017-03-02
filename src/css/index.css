@@ -1,0 +1,52 @@
+body{
+    font-size: 12px;
+    color:#333;
+    background-color:#f5f5f5;
+}
+table{
+    margin:0;
+    padding:0;
+}
+.container{
+    line-height: 30px;
+    margin-top:14px;
+}
+table .title{
+    width:120px;
+    text-align: right;
+    padding:0 10px;
+    display: inline-block;
+}
+table td{
+    vertical-align: top;
+}
+textarea{
+    width:100%;
+    min-height: 100px;
+}
+input[type="button"]{
+    cursor: pointer;
+    margin-right: 12px;
+}
+#btn_stop{
+    display: none;   
+}
+input,textarea,select{
+    border:1px solid #cecece;
+    border-radius: 4px;
+    color:#666;
+    outline: none;
+}
+label{
+    vertical-align: middle;
+}
+input[type="radio"]{
+    vertical-align: middle;
+    margin:0 6px;
+}
+.number{
+    width:70px;
+}
+.add,.minus{
+    width:24px;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加接口</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <table class="container">
+        <tr>
+            <td><span class="title">url:</span></td>
+            <td><input type="text" value="/" id="url" /></td>
+        </tr>
+        <tr>
+            <td><span class="title">method:</span></td>
+            <td>
+                <label><input type="radio" name="method" value="get" checked="checked"/>GET</label>
+                <label><input type="radio" name="method" value="post"/>POST</label>
+                <label><input type="radio" name="method" value="put"/>PUT</label>
+                <label><input type="radio" name="method" value="delete"/>DELETE</label>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="title">param:</span></td>
+            <td>
+                <table class="paralist">
+                    <tr>
+                        <td><input type="text" placeholder="参数名..." name="name"/></td>
+                        <td><input type="number" class="number" value="20" placeholder="接收长度..." name="name"/></td>
+                        <td>
+                            <select>
+                                <option value="string">string</option>
+                                <option value="int">int</option>
+                                <option value="float">float</option>
+                                <option value="bool">bool</option>
+                            </select>
+                        </td>
+                        <td><label>required:<input type="checkbox" placeholder="必填" name="required"/></label></td>
+                        <td><input type="button" class="add" value="+"/></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="title">return:</span></td>
+            <td>
+                <textarea></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" id="btn_add" value="add import"></td>
+        </tr>
+    </table>
+    <script src="js/addImport.js"></script>
+</body>
+</html>
