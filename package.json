@@ -1,5 +1,5 @@
 {
-  "name": "node-mock",
+  "name": "mock",
   "version": "1.0.0",
   "description": "mock系统",
   "main": "index.js",
@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tianxiangbing/node-mock.git"
+    "url": "git+https://github.com/tianxiangbing/mock.git"
   },
   "author": "tianxiangbing",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tianxiangbing/node-mock/issues"
+    "url": "https://github.com/tianxiangbing/mock/issues"
   },
-  "homepage": "https://github.com/tianxiangbing/node-mock#readme",
+  "homepage": "https://github.com/tianxiangbing/mock#readme",
   "devDependencies": {
     "express": "^4.15.0",
-    "jquery": "^3.1.1",
-    "opn": "^4.0.2"
+    "jq-query": "latest",
+    "jquery": "^3.1.1"
   }
 }

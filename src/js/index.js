@@ -1,7 +1,7 @@
 /**
  * Created with Visual Studio Code
- * github: https://github.com/tianxiangbing/node-mock
- * homepage:http://www.lovewebgames.com/node-mock
+ * github: https://github.com/tianxiangbing/mock
+ * homepage:http://www.lovewebgames.com/mock
  * User: 田想兵
  * Date: 2017-03-02
  * Time: 16:27:55
@@ -13,6 +13,7 @@ var $ = require('jquery');
 var path = require('path');
 var express = require('express');
 var app = express();
+const {shell} = require('electron');
 // var opn = require('opn');
 let server;
 $('#btn_start').click(function () {
@@ -50,13 +51,14 @@ function showtip(text) {
         $('#tips').html('');
     }, 1000)
 }
-// $('#btn_browser').click(function(){
-//     if(server){
-//         // window.open('http://localhost:'+$('#port').val())
-//         setTimeout(()=>{
-//             opn('http://localhost:'+$('#port').val())
-//         },1000)
-//     }else{
-//         alert('服务没有启动!');
-//     }
-// })
+$('#btn_browser').click(function(){
+    if(server){
+        // window.open('http://localhost:'+$('#port').val())
+        setTimeout(()=>{
+            // opn('http://localhost:'+$('#port').val())
+            shell.openExternal('http://localhost:'+$('#port').val());
+        },1000)
+    }else{
+        alert('服务没有启动!');
+    }
+})
