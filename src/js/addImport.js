@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const query = require('jq-query');
 let AddImport = {
+    config: require('../cache/config.json')||[],
     json: {},
     init() {
         $('.paramlist').on('click', '.add', function () {
@@ -16,6 +17,9 @@ let AddImport = {
             let current = $(this).closest('tr');
             current.remove();
         });
+        // $.getJSON('../cache/config.json').done((js)=>{
+        //     console.log(js)
+        // })
         $('#btn_add').click(() => {
             let a = query.getForm($('#myForm'));
             console.log(a)
@@ -23,7 +27,9 @@ let AddImport = {
             this.json.returnvalue = {
                 default: $('.defaultValue').val()
             }
-            fs.writeFile('./cache/config.json', JSON.stringify(this.json), function (e) {
+            this.json.key = +new Date();
+            this.config.push(this.json);
+            fs.writeFile('./cache/config.json', JSON.stringify(this.config), function (e) {
                 if (e) {
                     console.error(e)
                 } else {

@@ -1,12 +1,12 @@
 {
-  "name": "node-mock",
+  "name": "electron-mock",
   "version": "1.0.0",
   "description": "mock系统",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron index.js",
-    "packager":"electron-packager ./app mock --all --out ./app --version 1.0.0 --overwrite --icon=./src/icon/favicon.ico"
+    "packager":"electron-packager . 'mock' --platform=win32 --arch=x64 --icon=hosts.ico --out=./dist --asar --app-version=1.0.0 --ignore=\"(dist|src|docs|.gitignore|LICENSE|README.md|webpack.config.js|node_modules)\""
   },
   "repository": {
     "type": "git",

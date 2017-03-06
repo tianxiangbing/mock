@@ -13,18 +13,20 @@ var $ = require('jquery');
 var path = require('path');
 var express = require('express');
 var app = express();
+var fs = require('fs');
 const {shell} = require('electron');
 var Index = {
     server: null,
-    iWin:null,
+    iWin: null,
+    config:[],
     init: function () {
-        $('#btn_start').click( ()=> {
+        $('#btn_start').click(() => {
             // alert($('#port').val());
             let port = $('#port').val();
             app.get('/', function (req, res) {
                 res.send('服务已启动...');
             });
-            this.server = app.listen(port, ()=> {
+            this.server = app.listen(port, () => {
                 var host = this.server.address().address;
                 var port = this.server.address().port;
                 this.showtip('服务已启动...');
@@ -32,9 +34,10 @@ var Index = {
                 $('#btn_start').hide();
                 $('#btn_stop').show();
             });
+            this.bindConfig();
         });
-        $('#btn_stop').click( ()=> {
-            server.close( ()=> {
+        $('#btn_stop').click(() => {
+            this.server.close(() => {
                 console.log('close :(');
                 this.server = null;
                 showtip('服务已停止...');
@@ -57,6 +60,9 @@ var Index = {
             } else {
                 alert('服务没有启动!');
             }
+        });
+        $('#btn_manageimport').click(()=>{
+            
         })
     },
     showtip: (text) => {
@@ -64,6 +70,20 @@ var Index = {
         setTimeout(() => {
             $('#tips').html('');
         }, 1000)
+    },
+    bindConfig() {
+        fs.readFile('cache/config.json', 'utf8',  (err, data)=> {
+            if(err){
+                alert(err);
+            }else{
+                this.config = JSON.parse(data);
+                this.config.forEach((v)=>{
+                    app[v.method](v.url,function(req,res){
+                        res.send(v.returnvalue)
+                    })
+                });
+            }
+        })
     }
 }
 Index.init();
