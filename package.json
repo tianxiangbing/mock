@@ -1,11 +1,12 @@
 {
-  "name": "mock",
+  "name": "node-mock",
   "version": "1.0.0",
   "description": "mock系统",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron index.js"
+    "start": "electron index.js",
+    "packager":"electron-packager ./app mock --all --out ./app --version 1.0.0 --overwrite --icon=./src/icon/favicon.ico"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/tianxiangbing/mock#readme",
   "devDependencies": {
+    "electron-packager": "^8.5.2",
     "express": "^4.15.0",
     "jq-query": "latest",
     "jquery": "^3.1.1"
