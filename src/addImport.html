@@ -26,7 +26,7 @@
         <tr>
             <td><span class="title">param:</span></td>
             <td>
-                <table class="paramlist" listvalue="paramlist">
+                <table class="paramlist" listvalue="paramlist" name="paramlist">
                     <tr listrow>
                         <td><input type="text" placeholder="参数名..." name="name"/></td>
                         <td><input type="number" class="number" value="20" placeholder="接收长度..." name="len"/></td>
@@ -45,9 +45,10 @@
             </td>
         </tr>
         <tr>
-            <td><span class="title">return:</span></td>
+            <td><span class="title">return(default):</span></td>
             <td>
-                <textarea></textarea>
+                <textarea class="returnValue" class="defaultValue"></textarea>
+                <!--<input type="button" class="add_condition" value="add condition"/>-->
             </td>
         </tr>
         <tr>
