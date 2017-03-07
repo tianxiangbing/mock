@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manage import</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <script type="text/x-handlebars" id="temp">
+        <table class="manage">
+            <thead>
+                <tr>
+                    <th>url</th>
+                    <th>method</th>
+                    <th>paramlist</th>
+                    <th>returnvalue</th>
+                    <th>date</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each list}}
+                <tr>
+                    <td>{{{url}}}</td>
+                    <td>{{{method}}}</td>
+                    <td>{{{toString paramlist}}}</td>
+                    <td>{{{returnvalue.default}}}</td>
+                    <td>{{{toDate key}}}</td>
+                    <td><a class="edit" data-key="{{{url}}}">edit</a> <a class="del" data-key="{{{url}}}">del</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+    <script src="js/manageImport.js"></script>
+</body>
+</html>

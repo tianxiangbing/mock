@@ -6,6 +6,7 @@ body{
 table{
     margin:0;
     padding:0;
+    width:100%;
 }
 .container{
     line-height: 30px;
@@ -28,6 +29,13 @@ input[type="button"]{
     cursor: pointer;
     margin-right: 12px;
 }
+form>table>tbody>tr>td:first-child{
+    text-align: right;
+    max-width: 200px;
+}
+form>table>tbody>tr>td:nth-child(2){
+    text-align: left;
+}
 #btn_stop{
     display: none;   
 }
@@ -49,4 +57,23 @@ input[type="radio"]{
 }
 .add,.minus{
     width:24px;
+}
+.manage{
+    padding:0;
+    margin:0;
+    border-spacing: 0;
+    border-collapse:collapse;
+}
+.manage td{
+    border:1px solid #cecece;
+    padding:0 10px;
+    vertical-align: top;
+    line-height: 24px;
+}
+a{
+    cursor: pointer;
+}
+a:hover{
+    text-decoration: underline;
+    color:#e6a5a5;
 }

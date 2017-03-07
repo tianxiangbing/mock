@@ -2,8 +2,10 @@ let $ = require('jquery');
 const fs = require('fs');
 const path = require('path');
 const query = require('jq-query');
+const com = require('./js/common');
+
 let AddImport = {
-    config: require('../cache/config.json')||[],
+    config: require('../cache/config.json') || {},
     json: {},
     init() {
         $('.paramlist').on('click', '.add', function () {
@@ -28,14 +30,11 @@ let AddImport = {
                 default: $('.defaultValue').val()
             }
             this.json.key = +new Date();
-            this.config.push(this.json);
-            fs.writeFile('./cache/config.json', JSON.stringify(this.config), function (e) {
-                if (e) {
-                    console.error(e)
-                } else {
-                    // window.close();
-                }
-            });
+            this.config[a.url] = this.json;
+            com.save(this.config).done(()=>{
+                alert('ok')
+            })
+            return false;
         });
     }
 }

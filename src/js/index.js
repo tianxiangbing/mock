@@ -15,10 +15,13 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 const {shell} = require('electron');
+// const {BrowserWindow} = require('electron').remote;
+let com = require('./src/js/common');
+
 var Index = {
     server: null,
     iWin: null,
-    config:[],
+    config: [],
     init: function () {
         $('#btn_start').click(() => {
             // alert($('#port').val());
@@ -45,10 +48,10 @@ var Index = {
                 $('#btn_stop').hide();
             });
         });
-        $('#btn_addimport').click(function () {
-            const {BrowserWindow} = require('electron').remote
-            iWin = new BrowserWindow({ width: 800, height: 600 });
-            iWin.loadURL(path.join('file://', __dirname, 'src/addImport.html'));
+        $('#btn_addimport').click(() => {
+            // this.iWin = new BrowserWindow({ width: 800, height: 600 });
+            // this.iWin.loadURL(path.join('file://', __dirname, 'src/addImport.html'));
+            com.openWin('src/addImport.html', { height: 600, width: 800 });
         });
         $('#btn_browser').click(function () {
             if (server) {
@@ -61,8 +64,8 @@ var Index = {
                 alert('服务没有启动!');
             }
         });
-        $('#btn_manageimport').click(()=>{
-            
+        $('#btn_manageimport').click(() => {
+            com.openWin('src/manageImport.html');
         })
     },
     showtip: (text) => {
@@ -72,13 +75,13 @@ var Index = {
         }, 1000)
     },
     bindConfig() {
-        fs.readFile('cache/config.json', 'utf8',  (err, data)=> {
-            if(err){
+        fs.readFile('cache/config.json', 'utf8', (err, data) => {
+            if (err) {
                 alert(err);
-            }else{
+            } else {
                 this.config = JSON.parse(data);
-                this.config.forEach((v)=>{
-                    app[v.method](v.url,function(req,res){
+                this.config.forEach((v) => {
+                    app[v.method](v.url, function (req, res) {
                         res.send(v.returnvalue)
                     })
                 });
