@@ -16,7 +16,7 @@
             <table class="container">
                 <tr>
                     <td><span class="title">url:</span></td>
-                    <td><input type="text" value="{{url}}" id="url" name="url" /></td>
+                    <td><input type="text" value="{{url}}" id="url" name="url" readonly="readonly" /></td>
                 </tr>
                 <tr>
                     <td><span class="title">method:</span></td>
@@ -53,13 +53,13 @@
                 <tr>
                     <td><span class="title">return(default):</span></td>
                     <td>
-                        <textarea class="defaultValue"></textarea>
+                        <textarea class="defaultValue">{{{returnvalue.default}}}</textarea>
                         <!--<input type="button" class="add_condition" value="add condition"/>-->
                     </td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="button" id="btn_add" value="add import"></td>
+                    <td><input type="button" id="btn_save" value="save import"></td>
                 </tr>
             </table>
         </form>

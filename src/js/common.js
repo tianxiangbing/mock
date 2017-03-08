@@ -38,6 +38,9 @@ let Common = {
         let settings = $.extend({ width: screen.availWidth, height: screen.availHeight}, ops)
         this.iWin = new BrowserWindow(settings);
         this.iWin.loadURL(path.join('file://', __dirname,'../../'+ url));
+    },
+    formatString(jsonstr){
+        return jsonstr.replace(/[\n\t\r]/gi,'');
     }
 }
 module.exports = Common;

@@ -29,6 +29,7 @@ var Index = {
             app.get('/', function (req, res) {
                 res.send('服务已启动...');
             });
+            this.bindConfig();
             this.server = app.listen(port, () => {
                 var host = this.server.address().address;
                 var port = this.server.address().port;
@@ -37,7 +38,6 @@ var Index = {
                 $('#btn_start').hide();
                 $('#btn_stop').show();
             });
-            this.bindConfig();
         });
         $('#btn_stop').click(() => {
             this.server.close(() => {
@@ -47,6 +47,9 @@ var Index = {
                 $('#btn_start').show();
                 $('#btn_stop').hide();
             });
+            setTimeout(()=>{
+                location.reload();
+            },1000);
         });
         $('#btn_addimport').click(() => {
             // this.iWin = new BrowserWindow({ width: 800, height: 600 });
@@ -80,11 +83,12 @@ var Index = {
                 alert(err);
             } else {
                 this.config = JSON.parse(data);
-                this.config.forEach((v) => {
-                    app[v.method](v.url, function (req, res) {
-                        res.send(v.returnvalue)
-                    })
-                });
+                for(let url in this.config){
+                    let v = this.config[url];
+                    app[v.method](url, function (req, res) {
+                        res.send(v.returnvalue.default);
+                    });
+                }
             }
         })
     }

@@ -1,6 +1,6 @@
 let $ = require('jquery');
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const query = require('jq-query');
 const com = require('./js/common');
 
@@ -27,12 +27,13 @@ let AddImport = {
             console.log(a)
             $.extend(this.json, a);
             this.json.returnvalue = {
-                default: $('.defaultValue').val()
+                default:com.formatString($('.defaultValue').val()) 
             }
             this.json.key = +new Date();
             this.config[a.url] = this.json;
             com.save(this.config).done(()=>{
                 alert('ok')
+                location.href="manageImport.html";
             })
             return false;
         });
