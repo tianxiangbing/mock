@@ -22,6 +22,7 @@ var Index = {
     iWin: null,
     config: [],
     init: function () {
+        this.checkUpdate();
         $('#btn_start').click(() => {
             // alert($('#port').val());
             let port = $('#port').val();
@@ -72,7 +73,7 @@ var Index = {
         $('#btn_validateJson').click(() => {
             com.openWin('validateJson.html');
         });
-        $('.link a').click((e)=>{
+        $('.link a').click((e) => {
             let href = $(e.target).attr('href');
             shell.openExternal(href);
             return false;
@@ -95,6 +96,17 @@ var Index = {
                     app[v.method](url, function (req, res) {
                         res.send(v.returnvalue.default);
                     });
+                }
+            }
+        })
+    },
+    checkUpdate() {
+        var package = require("../package.json");
+        $.getJSON('https://raw.githubusercontent.com/tianxiangbing/mock/master/checkUpdate.html', (result) => {
+            console.log(package.version)
+            if (result.version > package.version) {
+                if (confirm('有新的功能出现，是否下载体验？')) {
+                    shell.openExternal('http://www.lovewebgames.com/app/mock/mock.exe');
                 }
             }
         })
