@@ -1,9 +1,11 @@
 const Handlebars = require('handlebars');
 const $ = require('jquery');
+const query = require('jq-query');
 // const fs = require('fs');
 let com = require('./js/common');
+const {shell} = require('electron');
 let ManageImport = {
-    config: require( com.getPath() )|| [],
+    config: require(com.getPath()) || [],
     init() {
         com.registHelper();
         this.render();
@@ -26,6 +28,12 @@ let ManageImport = {
                 location.reload();
             });
             return false;
+        });
+        $('.container').on('click', '.preview', (e) => {
+            let dom = $(e.target);
+            let url = dom.data('key');
+            let port = query.getQuery('port');
+            shell.openExternal('http://localhost:' + port + url);
         });
     },
     render() {

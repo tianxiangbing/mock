@@ -19,6 +19,7 @@
                     <th>returnvalue</th>
                     <th>date</th>
                     <th>action</th>
+                    <th>preview</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@
                     <td>{{{returnvalue.default}}}</td>
                     <td>{{{toDate key}}}</td>
                     <td><a class="edit" data-key="{{{url}}}">edit</a> <a class="del" data-key="{{{url}}}">del</a></td>
+                    <td><a class="preview" data-key="{{{url}}}">preview</a></td>
                 </tr>
                 {{/each}}
             </tbody>

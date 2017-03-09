@@ -56,19 +56,19 @@ var Index = {
             // this.iWin.loadURL(path.join('file://', __dirname, 'addImport.html'));
             com.openWin('addImport.html', { height: 600, width: 800 });
         });
-        $('#btn_browser').click(function () {
-            if (server) {
+        $('#btn_browser').click(() => {
+            if (this.server) {
                 // window.open('http://localhost:'+$('#port').val())
-                setTimeout(() => {
+                // setTimeout(() => {
                     // opn('http://localhost:'+$('#port').val())
                     shell.openExternal('http://localhost:' + $('#port').val());
-                }, 1000)
+                // }, 1000)
             } else {
                 alert('服务没有启动!');
             }
         });
         $('#btn_manageimport').click(() => {
-            com.openWin('manageImport.html');
+            com.openWin('manageImport.html?port=' + $('#port').val());
         });
         $('#btn_validateJson').click(() => {
             com.openWin('validateJson.html');
