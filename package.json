@@ -1,12 +1,13 @@
 {
-  "name": "electron-mock",
+  "name": "mock",
   "version": "1.0.0",
   "description": "mock系统",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron src/index.js",
-    "packager": "electron-packager . --electron-version=0.37.8 --asar.unpack=protocol-link.html --overwrite --platform=win32 --arch=x64 --icon=src/icon/favicon.ico --out=out  --version-string.FileDescription='mock' --version-string.ProductName='mock'"
+    "packager": "electron-packager . mock --electron-version=0.37.8 --asar.unpack=protocol-link.html --overwrite --platform=win32 --arch=x64 --icon=src/icon/favicon.ico --out=out  --version-string.FileDescription='mock' --version-string.ProductName='mock'",
+    "installer": "node ./script/installer.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
     "handlebars": "^4.0.6",
     "jq-query": "latest",
     "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "electron-winstaller": "^2.2.0"
   }
 }

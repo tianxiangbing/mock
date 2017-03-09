@@ -46,9 +46,9 @@ var Index = {
                 $('#btn_start').show();
                 $('#btn_stop').hide();
             });
-            setTimeout(()=>{
+            setTimeout(() => {
                 location.reload();
-            },1000);
+            }, 1000);
         });
         $('#btn_addimport').click(() => {
             // this.iWin = new BrowserWindow({ width: 800, height: 600 });
@@ -69,7 +69,7 @@ var Index = {
         $('#btn_manageimport').click(() => {
             com.openWin('manageImport.html');
         });
-        $('#btn_validateJson').click(()=>{
+        $('#btn_validateJson').click(() => {
             com.openWin('validateJson.html');
         });
     },
@@ -80,12 +80,12 @@ var Index = {
         }, 1000)
     },
     bindConfig() {
-        fs.readFile('cache/config.json', 'utf8', (err, data) => {
+        fs.readFile(com.getPath(), 'utf8', (err, data) => {
             if (err) {
                 alert(err);
             } else {
                 this.config = JSON.parse(data);
-                for(let url in this.config){
+                for (let url in this.config) {
                     let v = this.config[url];
                     app[v.method](url, function (req, res) {
                         res.send(v.returnvalue.default);

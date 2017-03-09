@@ -3,7 +3,7 @@ const $ = require('jquery');
 // const fs = require('fs');
 let com = require('./js/common');
 let ManageImport = {
-    config: require('../cache/config.json') || [],
+    config: require( com.getPath() )|| [],
     init() {
         com.registHelper();
         this.render();

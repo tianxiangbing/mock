@@ -5,7 +5,7 @@ const query = require('jq-query');
 const com = require('./js/common');
 
 let AddImport = {
-    config: require('../cache/config.json') || {},
+    config: require(com.getPath()),
     json: {},
     init() {
         $('.paramlist').on('click', '.add', function () {
@@ -27,18 +27,18 @@ let AddImport = {
             console.log(a)
             $.extend(this.json, a);
             this.json.returnvalue = {
-                default:com.formatString($('.defaultValue').val()) 
+                default: com.formatString($('.defaultValue').val())
             }
             this.json.key = +new Date();
             this.config[a.url] = this.json;
-            com.save(this.config).done(()=>{
+            com.save(this.config).done(() => {
                 alert('ok')
-                location.href="manageImport.html";
+                location.href = "manageImport.html";
             })
             return false;
         });
-        $('#btn_format').click(()=>{
-            $('textarea').each((index,elem)=>{
+        $('#btn_format').click(() => {
+            $('textarea').each((index, elem) => {
                 $(elem).val(com.formatJson($(elem).val()));
             });
         });

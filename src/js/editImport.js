@@ -4,7 +4,7 @@ let com = require('./js/common');
 const query = require('jq-query');
 
 let EditImport = {
-    config: require('../cache/config.json') || [],
+    config:require( com.getPath() )|| [],
     url: decodeURIComponent(query.getQuery('url')),
     json: {},
     init() {
@@ -19,6 +19,17 @@ let EditImport = {
         $('.container').html(_html);
     },
     bindEvent() {
+        $('.paramlist').on('click', '.add', function () {
+            let current = $(this).closest('tr');
+            // current.index()>0?$(this).removeClass('add').addClass('minus').val('-'):$(this).removeClass('minus').addClass('add').val('+');
+            let clone = current.clone();
+            clone.find('.add').removeClass('add').addClass('minus').val('-');
+            current.after(clone);
+        });
+        $('.paramlist').on('click', '.minus', function () {
+            let current = $(this).closest('tr');
+            current.remove();
+        });
         $('#btn_save').click(() => {
             let a = query.getForm($('#myForm'));
             console.log(a)

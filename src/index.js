@@ -12,6 +12,9 @@ let electron = require('electron');
 let path = require('path');
 const {app} = electron;
 const {BrowserWindow} = electron;
+const fs = require('fs');
+// const com = require('./js/common');
+const os = require('os')
 let win = null;
 function openWindow() {
     win = new BrowserWindow({ width: 800, height: 600 });
@@ -20,11 +23,15 @@ function openWindow() {
     win.on('closed', function () {
         win = null;
     });
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
+    let p = path.join(os.homedir(), 'config.json');
+    if (!fs.exists(p)) {
+        fs.writeFile(p, '{}', { encoding: 'utf8' });
+    }
 }
 app.on('ready', openWindow);
 
-app.on('window-all-closed',function(){
+app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
         app.quit();
     }

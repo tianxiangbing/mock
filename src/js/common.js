@@ -3,6 +3,7 @@ let fs = require('fs');
 let $ = require('jquery');
 const {BrowserWindow} = require('electron').remote;
 let path = require('path');
+let os = require('os');
 
 let Common = {
     registHelper() {
@@ -24,6 +25,9 @@ let Common = {
             return this.formatJson(v);
         });
     },
+    getPath() {
+        return path.join(os.homedir(), 'config.json');
+    },
     formatJson(v, callback) {
         let json = v
         try {
@@ -37,7 +41,7 @@ let Common = {
     },
     save(json) {
         var deferr = new $.Deferred();
-        fs.writeFile('./cache/config.json', JSON.stringify(json), function (e) {
+        fs.writeFile(this.getPath(), JSON.stringify(json), function (e) {
             if (e) {
                 alert(e)
                 deferr.reject()
@@ -51,11 +55,11 @@ let Common = {
     openWin(url, ops) {
         let settings = $.extend({ width: screen.availWidth, height: screen.availHeight }, ops);
         this.iWin = new BrowserWindow(settings);
-        if (!ops||!ops.width) {
-           this.iWin.maximize();
+        if (!ops || !ops.width) {
+            this.iWin.maximize();
         }
         this.iWin.loadURL(path.join('file://', __dirname, '../' + url));
-        this.iWin.webContents.openDevTools();
+        // this.iWin.webContents.openDevTools();
         return this.iWin;
     },
     formatString(jsonstr) {
