@@ -54,7 +54,7 @@ var Index = {
         $('#btn_addimport').click(() => {
             // this.iWin = new BrowserWindow({ width: 800, height: 600 });
             // this.iWin.loadURL(path.join('file://', __dirname, 'addImport.html'));
-            com.openWin('addImport.html', { height: 600, width: 800 });
+            com.openWin('addImport.html');
         });
         $('#btn_browser').click(() => {
             if (this.server) {
