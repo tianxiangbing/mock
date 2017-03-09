@@ -13,7 +13,7 @@ let ManageImport = {
         $('.container').on('click', '.edit', (e) => {
             let dom = $(e.target);
             let url = dom.data('key');
-            // com.openWin('src/editImport.html?url='+encodeURIComponent(url),{height:600,width:800});
+            // com.openWin('editImport.html?url='+encodeURIComponent(url),{height:600,width:800});
             location.href = 'editImport.html?url=' + encodeURIComponent(url);
             return false;
         });

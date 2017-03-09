@@ -23,7 +23,7 @@ table td{
 }
 textarea{
     width:100%;
-    min-height: 100px;
+    min-height:300px;
 }
 input[type="button"]{
     cursor: pointer;
@@ -76,4 +76,12 @@ a{
 a:hover{
     text-decoration: underline;
     color:#e6a5a5;
+}
+#json_input{
+    height: 500px;
+}
+#results{
+    border:1px solid #cecece;
+    background: #f2f2f2;
+    display: inline-block;
 }

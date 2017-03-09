@@ -16,8 +16,7 @@ var app = express();
 var fs = require('fs');
 const {shell} = require('electron');
 // const {BrowserWindow} = require('electron').remote;
-let com = require('./src/js/common');
-
+let com = require('./js/common');
 var Index = {
     server: null,
     iWin: null,
@@ -26,9 +25,9 @@ var Index = {
         $('#btn_start').click(() => {
             // alert($('#port').val());
             let port = $('#port').val();
-            app.get('/', function (req, res) {
-                res.send('服务已启动...');
-            });
+            // app.get('/', function (req, res) {
+            //     res.send('服务已启动...');
+            // });
             this.bindConfig();
             this.server = app.listen(port, () => {
                 var host = this.server.address().address;
@@ -53,8 +52,8 @@ var Index = {
         });
         $('#btn_addimport').click(() => {
             // this.iWin = new BrowserWindow({ width: 800, height: 600 });
-            // this.iWin.loadURL(path.join('file://', __dirname, 'src/addImport.html'));
-            com.openWin('src/addImport.html', { height: 600, width: 800 });
+            // this.iWin.loadURL(path.join('file://', __dirname, 'addImport.html'));
+            com.openWin('addImport.html', { height: 600, width: 800 });
         });
         $('#btn_browser').click(function () {
             if (server) {
@@ -68,8 +67,11 @@ var Index = {
             }
         });
         $('#btn_manageimport').click(() => {
-            com.openWin('src/manageImport.html');
-        })
+            com.openWin('manageImport.html');
+        });
+        $('#btn_validateJson').click(()=>{
+            com.openWin('validateJson.html');
+        });
     },
     showtip: (text) => {
         $('#tips').html(text);

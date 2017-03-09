@@ -13,13 +13,27 @@ let Common = {
             let d = new Date(v);
             return d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
         });
-        Handlebars.registerHelper('equal',function(v1, v2, options) {
+        Handlebars.registerHelper('equal', function (v1, v2, options) {
             if (v1 == v2) {
                 return options.fn(this);
             } else {
                 return options.inverse(this);
             }
         });
+        Handlebars.registerHelper('formatJson', (v) => {
+            return this.formatJson(v);
+        });
+    },
+    formatJson(v, callback) {
+        let json = v
+        try {
+            json = JSON.stringify(JSON.parse(v), null, "    ");
+            callback && callback(true, json);
+        } catch (e) {
+            json = v;
+            callback && callback(false, e);
+        }
+        return json;
     },
     save(json) {
         var deferr = new $.Deferred();
@@ -35,12 +49,17 @@ let Common = {
         return deferr;
     },
     openWin(url, ops) {
-        let settings = $.extend({ width: screen.availWidth, height: screen.availHeight}, ops)
+        let settings = $.extend({ width: screen.availWidth, height: screen.availHeight }, ops);
         this.iWin = new BrowserWindow(settings);
-        this.iWin.loadURL(path.join('file://', __dirname,'../../'+ url));
+        if (!ops||!ops.width) {
+           this.iWin.maximize();
+        }
+        this.iWin.loadURL(path.join('file://', __dirname, '../' + url));
+        this.iWin.webContents.openDevTools();
+        return this.iWin;
     },
-    formatString(jsonstr){
-        return jsonstr.replace(/[\n\t\r]/gi,'');
+    formatString(jsonstr) {
+        return jsonstr.replace(/[\n\t\r]/gi, '');
     }
 }
 module.exports = Common;

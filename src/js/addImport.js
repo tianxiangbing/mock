@@ -37,6 +37,11 @@ let AddImport = {
             })
             return false;
         });
+        $('#btn_format').click(()=>{
+            $('textarea').each((index,elem)=>{
+                $(elem).val(com.formatJson($(elem).val()));
+            });
+        });
     }
 }
 AddImport.init();

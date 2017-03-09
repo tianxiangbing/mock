@@ -19,7 +19,8 @@ function openWindow() {
     // win.setMenu(null);
     win.on('closed', function () {
         win = null;
-    })
+    });
+    win.webContents.openDevTools();
 }
 app.on('ready', openWindow);
 
