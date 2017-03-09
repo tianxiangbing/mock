@@ -72,6 +72,11 @@ var Index = {
         $('#btn_validateJson').click(() => {
             com.openWin('validateJson.html');
         });
+        $('.link a').click((e)=>{
+            let href = $(e.target).attr('href');
+            shell.openExternal(href);
+            return false;
+        });
     },
     showtip: (text) => {
         $('#tips').html(text);
