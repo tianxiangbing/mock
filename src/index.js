@@ -25,9 +25,12 @@ function openWindow() {
     });
     // win.webContents.openDevTools();
     let p = path.join(os.homedir(), 'config.json');
-    if (!fs.exists(p)) {
-        fs.writeFile(p, '{}', { encoding: 'utf8' });
-    }
+    fs.exists(p,(ex)=>{
+        console.log(ex)
+        if(!ex){
+            fs.writeFile(p, '{}', { encoding: 'utf8' });
+        }
+    });
 }
 app.on('ready', openWindow);
 
