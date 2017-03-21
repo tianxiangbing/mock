@@ -17,7 +17,7 @@ const fs = require('fs');
 const os = require('os')
 let win = null;
 function openWindow() {
-    win = new BrowserWindow({ width: 800, height: 600 });
+    win = new BrowserWindow({ width: 800, height: 600 ,icon:'icon/favicon.ico'});
     win.loadURL(path.join('file://', __dirname, '/index.html'));
     // win.setMenu(null);
     win.on('closed', function () {
