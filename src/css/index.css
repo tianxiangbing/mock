@@ -72,6 +72,12 @@ input[type="radio"]{
     vertical-align: top;
     line-height: 24px;
 }
+.manage td .defaultvalue{
+    width:200px;
+    height:24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 a{
     cursor: pointer;
     text-decoration:none;
