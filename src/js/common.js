@@ -8,7 +8,7 @@ let os = require('os');
 let Common = {
     registHelper() {
         Handlebars.registerHelper('toString', function (v) {
-            return JSON.stringify(v) || '';
+            return Common.formatString(JSON.stringify(v)) || '';
         });
         Handlebars.registerHelper('toDate', function (v) {
             let d = new Date(v);
@@ -28,6 +28,9 @@ let Common = {
     getPath() {
         return path.join(os.homedir(), 'config.json');
     },
+    getSocketPath() {
+        return path.join(os.homedir(), 'socketconfig.json');
+    },
     formatJson(v, callback) {
         let json = v
         try {
@@ -39,9 +42,9 @@ let Common = {
         }
         return json;
     },
-    save(json) {
+    save(json,path) {
         var deferr = new $.Deferred();
-        fs.writeFile(this.getPath(), JSON.stringify(json), function (e) {
+        fs.writeFile(path||this.getPath(), JSON.stringify(json), function (e) {
             if (e) {
                 alert(e)
                 deferr.reject()

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>编辑Socket</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <a href="manageSocket.html">管理推送</a>
+    <div class="container">
+
+    </div>
+    <script type="text/handlebars" id="temp">
+      <form id="myForm">
+        <table class="container">
+            <tr>
+                <td><span class="title">推送频率/s:</span></td>
+                <td><input type="text" value="{{frequency}}" id="frequency" name="frequency" /></td>
+            </tr>
+            <tr>
+                <td><span class="title">随机规则@random:</span></td>
+                <td>
+                    <input type="text" value="{{random}}" name="random" class="random"/>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="title">推送内容:</span></td>
+                <td>
+                    <table class="paramlist" listvalue="list" name="list">
+                        {{#each list}}
+                        <tr listrow>
+                            <td>
+                              <textarea name="content" class="txt_content">{{content}}</textarea>
+                            </td>
+                            <td><input type="button" class="add" value="+" /><input type="button" class="minus" value="-" /></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="title">启用</span></td>
+                <td>
+                    <input type="checkbox" checked="checked" value="true" name="enable"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" id="btn_save" value="保存配置"></td>
+            </tr>
+        </table>
+    </form>
+    </script>
+    <script src="js/editSocket.js"></script>
+</body>
+
+</html>

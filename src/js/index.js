@@ -20,7 +20,9 @@ let com = require('./js/common');
 var Index = {
     server: null,
     iWin: null,
+    io: null,
     config: [],
+    timer: {},//socket的定时器
     init: function () {
         this.checkUpdate();
         $('#btn_start').click(() => {
@@ -30,13 +32,37 @@ var Index = {
             //     res.send('服务已启动...');
             // });
             this.bindConfig();
-            this.server = app.listen(port, () => {
+            this.server = require('http').createServer(app);
+            // this.server = app.listen(port, () => {
+            //     var host = this.server.address().address;
+            //     var port = this.server.address().port;
+            //     this.showtip('服务已启动...');
+            //     console.log('app listening at http://%s:%s', host, port);
+            //     $('#btn_start').hide();
+            //     $('#btn_stop').show();
+            // });
+            // this.startSocket();
+            this.server.listen(port, () => {
                 var host = this.server.address().address;
                 var port = this.server.address().port;
                 this.showtip('服务已启动...');
                 console.log('app listening at http://%s:%s', host, port);
                 $('#btn_start').hide();
                 $('#btn_stop').show();
+            });
+        });
+        $('#btn_start_socket').click(() => {
+            if (this.server) {
+                this.startSocket();
+            } else {
+                alert('请先启动http服务.');
+            }
+        });
+        $('#btn_test_socket').click(() => {
+            socket = io.connect('http://localhost:' + $('#port').val());
+            socket.emit('message', '测试成功!');
+            socket.on('message', function (data) {
+                $('#sctips').html(data);
             });
         });
         $('#btn_stop').click(() => {
@@ -60,8 +86,8 @@ var Index = {
             if (this.server) {
                 // window.open('http://localhost:'+$('#port').val())
                 // setTimeout(() => {
-                    // opn('http://localhost:'+$('#port').val())
-                    shell.openExternal('http://localhost:' + $('#port').val());
+                // opn('http://localhost:'+$('#port').val())
+                shell.openExternal('http://localhost:' + $('#port').val());
                 // }, 1000)
             } else {
                 alert('服务没有启动!');
@@ -77,6 +103,69 @@ var Index = {
             let href = $(e.target).attr('href');
             shell.openExternal(href);
             return false;
+        });
+        $('#btn_auto_socket').click(() => {
+            // this.autoSocket();//自动推送消息
+            com.openWin('socket.html');
+        });
+        $('#btn_manageSocket').click(() => {
+            com.openWin('manageSocket.html');
+        });
+    },
+    //开始socket服务
+    startSocket() {
+        try {
+            if (this.io) {
+                this.io.close();
+            }
+            this.io = require('socket.io')(this.server);
+            this.io.on('connection', (sc) => {
+                console.log('有连接来了');
+                sc.on('disconnect', function () {
+                    console.log('user disconnected.');
+                });
+                sc.on('message', (msg) => {
+                    console.log('message: ' + msg);
+                    this.io.emit('message', msg);
+                });
+            });
+            this.io.emit('some event', {
+                for: "everyone"
+            });
+            this.autoSocket();
+            $('#btn_start_socket').val('重启socket服务');
+            alert('开启成功!')
+        } catch (e) {
+            alert(e);
+        }
+    },
+    //自动推送消息
+    autoSocket() {
+        fs.readFile(com.getSocketPath(), 'utf8', (err, data) => {
+            if (err) {
+                alert(err);
+            } else {
+                let config = JSON.parse(data);
+                config.forEach((v,k) => {
+                    let frequency = v.frequency;
+                    let i = 0;
+                    this.timer[k] && clearInterval(this.timer[k]);
+                    this.timer[k] = setInterval(() => {
+                        if (i >= v.list.length) {
+                            i = 0;
+                        }
+                        let content = v.list[i].content;
+                        let random = v.random;
+                        content = content.replace(/@random/g, function () {
+                            return eval(random);
+                        })
+                        console.log(content);
+                        this.io.emit('message', content);
+                        i++;
+                    }, 1000 / frequency);
+                })
+
+            }
         });
     },
     showtip: (text) => {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manage Socket</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <a href="socket.html">添加推送</a>
+    <div class="container">
+    </div>
+    <script type="text/x-handlebars" id="temp">
+        <table class="manage">
+            <thead>
+                <tr>
+                    <th>频率</th>
+                    <th>替换规则</th>
+                    <th>推送消息内容</th>
+                    <th>是否启用</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each .}}
+                <tr>
+                    <td>{{{frequency}}}</td>
+                    <td>{{{random}}}</td>
+                    <td><div class="defaultvalue" title='{{{toString list}}}'>{{{toString list}}}</div></td>
+                    <td>{{{enable}}}</td>
+                    <td><a class="edit" data-key="{{{@key}}}">edit</a> <a class="del" data-key="{{{@key}}}">del</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+    <script src="js/manageSocket.js"></script>
+</body>
+</html>

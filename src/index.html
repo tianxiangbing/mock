@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>mock工具</title>
     <link rel="stylesheet" href="css/index.css" />
 </head>
+
 <body>
     <a href="https://tianxiangbing.github.io/mock/" target="_blank">帮助文档</a>
     <table class="container">
         <tr>
             <td width="200px" align="right"><span class="title">模拟接口端口号：</span></td>
-            <td><input type="number" class="number" id="port" value="8080"/></td>
+            <td><input type="number" class="number" id="port" value="8080" /></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="button" id="btn_addimport" value="添加模拟接口"/></td>
+            <td><input type="button" id="btn_addimport" value="添加模拟接口" /></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="button" id="btn_manageimport" value="查看已有接口"/></td>
+            <td><input type="button" id="btn_manageimport" value="查看已有接口" /></td>
         </tr>
         <tr>
             <td><span class="title" id="tips"></span></td>
             <td>
-                <input type="button" value="开始服务" id="btn_start"/><input type="button" value="停止服务" id="btn_stop"/>
-                <input type="button" id="btn_browser" value="在浏览器中打开"/>
+                <input type="button" value="启动服务" id="btn_start" /><input type="button" value="停止服务" id="btn_stop" />
+                <input type="button" id="btn_browser" value="在浏览器中打开" />
             </td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="button" id="btn_validateJson" value="json格式验证"/></td>
+            <td>
+                <input type="button" value="自动推送配置" id="btn_auto_socket" />
+                <input type="button" id="btn_manageSocket" value="管理推送" />
+            </td>
+        </tr>
+        <tr>
+            <td><span class="title" id="sctips"></span></td>
+            <td>
+                <input type="button" value="启动socket服务" id="btn_start_socket" />
+                <input type="button" value="测试socket服务" id="btn_test_socket" />
+                <!--<input type="button" value="手动推送" id="btn_manual_socket"/>-->
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" id="btn_validateJson" value="json格式验证" /></td>
         </tr>
     </table>
     <div class="link">
@@ -39,7 +56,12 @@
         <div class="item"><a href="https://github.com/tianxiangbing">作者github主页</a></div>
         <div class="item"><a href="http://www.lovewebgames.com/app/mock/mock.exe">下载最新版本</a></div>
     </div>
-    <div class="add_star"><iframe src="http://ghbtns.com/github-btn.html?user=tianxiangbing&amp;repo=mock&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="120" id="gh-watchers" height="20"></iframe></div>
+    <div class="add_star">
+        <iframe src="http://ghbtns.com/github-btn.html?user=tianxiangbing&amp;repo=mock&amp;type=watch&amp;count=true" allowtransparency="true"
+            frameborder="0" scrolling="0" width="120" id="gh-watchers" height="20"></iframe>
+    </div>
+    <script src="js/socket.io.js"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

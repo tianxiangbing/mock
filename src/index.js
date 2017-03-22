@@ -31,6 +31,13 @@ function openWindow() {
             fs.writeFile(p, '{}', { encoding: 'utf8' });
         }
     });
+    let s = path.join(os.homedir(), 'socketconfig.json');
+    fs.exists(s,(ex)=>{
+        console.log(ex)
+        if(!ex){
+            fs.writeFile(s, '[]', { encoding: 'utf8' });
+        }
+    });
 }
 app.on('ready', openWindow);
 

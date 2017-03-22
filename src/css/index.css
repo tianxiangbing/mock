@@ -111,3 +111,15 @@ a:hover,a:link,a:active{
     right:0px;
     top:10px;
 }
+.txt_content{
+    width:800px;
+    min-height:50px;
+}
+.random{
+    width:500px;
+}
+.sctips{
+    width:200px;
+    height:40px;
+    overflow: hidden;
+}

@@ -23,7 +23,8 @@
     "express": "^4.15.0",
     "handlebars": "^4.0.6",
     "jq-query": "latest",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "socket.io": "^1.7.3"
   },
   "devDependencies": {
     "electron-winstaller": "^2.2.0"
