@@ -1,5 +1,6 @@
 # mock工具
-该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。
+该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。针对由socket.io和websocket的推送服务进行的不同的支持。
+socket.io的服务直接基于当前的http服务，websocket服务要设置不同的端口号。调用方式与官方接口一致。
 
 本工具下载地址：
 [https://tianxiangbing.github.io/mock/updates/mock.exe](https://tianxiangbing.github.io/mock/updates/mock.exe)
@@ -31,10 +32,17 @@
 
 ![](imgs/step-6.jpg)
 
-7. Socket推送消息如上面步骤类似，需要先启用http服务
+7. Socket.io推送消息如上面步骤类似，需要先启用http服务
 
     socket = io.connect('http://localhost:8080');
     socket.emit('message', '测试成功!');
     socket.on('message', function (data) {
         $('#sctips').html(data);
+    });
+
+8. websocket推送消息不同于socket.io,需要单独设立端口号
+
+    const ws = new WebSocket('ws://localhost:8090/ws');
+    ws.on('message', function incoming(data) {
+        $('#wstips').html(data)
     });
