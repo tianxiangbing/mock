@@ -30,3 +30,11 @@
 6. 主界面的json格式验证，提供一个快捷的json格式验证和格式化工具.
 
 ![](imgs/step-6.jpg)
+
+7. Socket推送消息如上面步骤类似，需要先启用http服务
+
+    socket = io.connect('http://localhost:8080');
+    socket.emit('message', '测试成功!');
+    socket.on('message', function (data) {
+        $('#sctips').html(data);
+    });
