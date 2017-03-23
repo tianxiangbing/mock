@@ -2,8 +2,10 @@
 该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。
 
 本工具下载地址：
-[http://www.lovewebgames.com/app/mock/mock.exe](http://www.lovewebgames.com/app/mock/mock.exe)
+[https://tianxiangbing.github.io/mock/updates/mock.exe](https://tianxiangbing.github.io/mock/updates/mock.exe)
 或者
+[http://www.lovewebgames.com/app/mock/mock.exe](http://www.lovewebgames.com/app/mock/mock.exe)
+或者绿化版本
 [http://www.react-cn.com/app/mock/mock.rar](http://www.react-cn.com/app/mock/mock.rar)
 
 **源码地址：[https://github.com/tianxiangbing/mock](https://github.com/tianxiangbing/mock)**
