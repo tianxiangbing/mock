@@ -16,6 +16,7 @@ const fs = require('fs');
 // const com = require('./js/common');
 const os = require('os')
 let win = null;
+
 function openWindow() {
     win = new BrowserWindow({ width: 800, height: 600 ,icon:'icon/favicon.ico'});
     win.loadURL(path.join('file://', __dirname, '/index.html'));

@@ -146,8 +146,10 @@ var Index = {
                 alert(err);
             } else {
                 let config = JSON.parse(data);
-                config.forEach((v,k) => {
+                for (var k in config) {
+                    let v = config[k];
                     let frequency = v.frequency;
+                    if(v.enable==false)continue;
                     let i = 0;
                     this.timer[k] && clearInterval(this.timer[k]);
                     this.timer[k] = setInterval(() => {
@@ -163,8 +165,7 @@ var Index = {
                         this.io.emit('message', content);
                         i++;
                     }, 1000 / frequency);
-                })
-
+                }
             }
         });
     },
@@ -191,11 +192,11 @@ var Index = {
     },
     checkUpdate() {
         var package = require("../package.json");
-        $.getJSON('https://raw.githubusercontent.com/tianxiangbing/mock/master/checkUpdate.html', (result) => {
+        $.getJSON('https://tianxiangbing.github.io/mock/checkUpdate.html', (result) => {
             console.log(package.version)
             if (result.version > package.version) {
                 if (confirm('有新的功能出现，是否下载体验？')) {
-                    shell.openExternal('http://www.lovewebgames.com/app/mock/mock.exe');
+                    shell.openExternal('https://tianxiangbing.github.io/mock/updates/mock.exe');
                 }
             }
         })

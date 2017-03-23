@@ -1,12 +1,13 @@
 {
-  "name": "electron-mock",
-  "version": "1.0.0",
-  "description": "mock系统",
-  "main": "index.js",
+  "name": "mock",
+  "version": "1.0.1",
+  "description": "mock工具:该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron index.js",
-    "packager": "electron-packager . 'mock' --platform=win32 --arch=x64 --icon=hosts.ico --out=./dist --asar --app-version=1.0.0 --ignore=\"(dist|src|docs|.gitignore|LICENSE|README.md|webpack.config.js|node_modules)\""
+    "start": "electron src/index.js",
+    "packager": "electron-packager . mock --electron-version=0.37.8 --asar.unpack=protocol-link.html --overwrite --platform=win32 --arch=x64 --icon=src/icon/favicon.ico --out=out  --version-string.FileDescription='mock' --version-string.ProductName='mock'",
+    "installer": "node ./script/installer.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,13 @@
     "url": "https://github.com/tianxiangbing/mock/issues"
   },
   "homepage": "https://github.com/tianxiangbing/mock#readme",
-  "devDependencies": {
+  "dependencies": {
     "express": "^4.15.0",
-    "gulp-electron": "^0.1.3",
     "handlebars": "^4.0.6",
     "jq-query": "latest",
     "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "electron-winstaller": "^2.2.0"
   }
 }
