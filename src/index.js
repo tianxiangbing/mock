@@ -36,7 +36,7 @@ function openWindow() {
     fs.exists(s,(ex)=>{
         console.log(ex)
         if(!ex){
-            fs.writeFile(s, '[]', { encoding: 'utf8' });
+            fs.writeFile(s, '{}', { encoding: 'utf8' });
         }
     });
 }
