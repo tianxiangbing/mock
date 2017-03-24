@@ -2,7 +2,7 @@ const Handlebars = require('handlebars');
 const $ = require('jquery');
 const query = require('jq-query');
 // const fs = require('fs');
-let com = require('./js/common');
+let com = require('./lib/common');
 const {shell} = require('electron');
 let ManageImport = {
     config: require(com.getPath()) || [],

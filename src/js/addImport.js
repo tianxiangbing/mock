@@ -2,7 +2,7 @@ let $ = require('jquery');
 // const fs = require('fs');
 // const path = require('path');
 const query = require('jq-query');
-const com = require('./js/common');
+const com = require('./lib/common');
 
 let AddImport = {
     config: require(com.getPath()),

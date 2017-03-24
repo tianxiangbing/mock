@@ -10,49 +10,23 @@
  */
 
 var $ = require('jquery');
-var path = require('path');
-var express = require('express');
-var app = express();
 var fs = require('fs');
 const {shell} = require('electron');
 const WebSocket = require('ws');
-// const {BrowserWindow} = require('electron').remote;
-let com = require('./js/common');
+let com = require('./lib/common');
+let httpserver = require('./lib/httpserver');
 var Index = {
     server: null,
     iWin: null,
     io: null,
-    config: [],
     timer: {},//socket的定时器
     wss:null,
     ws:null,
     init: function () {
         this.checkUpdate();
         $('#btn_start').click(() => {
-            // alert($('#port').val());
             let port = $('#port').val();
-            // app.get('/', function (req, res) {
-            //     res.send('服务已启动...');
-            // });
-            this.bindConfig();
-            this.server = require('http').createServer(app);
-            // this.server = app.listen(port, () => {
-            //     var host = this.server.address().address;
-            //     var port = this.server.address().port;
-            //     this.showtip('服务已启动...');
-            //     console.log('app listening at http://%s:%s', host, port);
-            //     $('#btn_start').hide();
-            //     $('#btn_stop').show();
-            // });
-            // this.startSocket();
-            this.server.listen(port, () => {
-                var host = this.server.address().address;
-                var port = this.server.address().port;
-                this.showtip('服务已启动...');
-                console.log('app listening at http://%s:%s', host, port);
-                $('#btn_start').hide();
-                $('#btn_stop').show();
-            });
+            this.server = httpserver.init(port);
         });
         //socket.io服务
         $('#btn_start_socket').click(() => {
@@ -179,13 +153,16 @@ var Index = {
             if (err) {
                 alert(err);
             } else {
+                //清空所有的定时器
+                for(let j in this.timer){
+                    this.timer[j] && clearInterval(this.timer[j]);
+                }
                 let config = JSON.parse(data);
                 for (var k in config) {
                     let v = config[k];
                     let frequency = v.frequency;
                     if (v.enable == false) continue;
                     let i = 0;
-                    this.timer[k] && clearInterval(this.timer[k]);
                     this.timer[k] = setInterval(() => {
                         if (i >= v.list.length) {
                             i = 0;
@@ -209,22 +186,6 @@ var Index = {
         setTimeout(() => {
             $('#tips').html('');
         }, 1000)
-    },
-    bindConfig() {
-        fs.readFile(com.getPath(), 'utf8', (err, data) => {
-            if (err) {
-                alert(err);
-            } else {
-                this.config = JSON.parse(data);
-                for (let url in this.config) {
-                    let v = this.config[url];
-                    app[v.method](url, function (req, res) {
-                        res.send(v.returnvalue.default);
-                        res.end();
-                    });
-                }
-            }
-        })
     },
     checkUpdate() {
         var package = require("../package.json");

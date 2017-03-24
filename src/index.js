@@ -16,9 +16,8 @@ const fs = require('fs');
 // const com = require('./js/common');
 const os = require('os')
 let win = null;
-
 function openWindow() {
-    win = new BrowserWindow({ width: 800, height: 600 ,icon:'icon/favicon.ico'});
+    win = new BrowserWindow({ width: 800, height: 600, icon: 'icon/favicon.ico' });
     win.loadURL(path.join('file://', __dirname, '/index.html'));
     // win.setMenu(null);
     win.on('closed', function () {
@@ -26,17 +25,23 @@ function openWindow() {
     });
     // win.webContents.openDevTools();
     let p = path.join(os.homedir(), 'config.json');
-    fs.exists(p,(ex)=>{
+    fs.exists(p, (ex) => {
         console.log(ex)
-        if(!ex){
-            fs.writeFile(p, '{}', { encoding: 'utf8' });
+        if (!ex) {
+            fs.readFile( 'src/mock/config.json', 'utf8', (err, data) => {
+                console.log(111,err)
+                fs.writeFile(p, data, { encoding: 'utf8' });
+            })
         }
     });
     let s = path.join(os.homedir(), 'socketconfig.json');
-    fs.exists(s,(ex)=>{
+    fs.exists(s, (ex) => {
         console.log(ex)
-        if(!ex){
-            fs.writeFile(s, '{}', { encoding: 'utf8' });
+        if (!ex) {
+            fs.readFile('src/mock/socketconfig.json', 'utf8', (err, data) => {
+                console.log(111,err)
+                fs.writeFile(s, data, { encoding: 'utf8' });
+            })
         }
     });
 }

@@ -1,6 +1,6 @@
 const $ = require('jquery');
 const Handlebars = require('handlebars');
-let com = require('./js/common');
+let com = require('./lib/common');
 const query = require('jq-query');
 
 let EditImport = {
