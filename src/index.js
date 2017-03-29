@@ -10,11 +10,12 @@
  */
 let electron = require('electron');
 let path = require('path');
-const {app} = electron;
-const {BrowserWindow} = electron;
+const { app } = electron;
+const { BrowserWindow } = electron;
 const fs = require('fs');
 // const com = require('./js/common');
-const os = require('os')
+const os = require('os');
+
 let win = null;
 function openWindow() {
     win = new BrowserWindow({ width: 800, height: 600, icon: 'icon/favicon.ico' });
@@ -28,8 +29,8 @@ function openWindow() {
     fs.exists(p, (ex) => {
         console.log(ex)
         if (!ex) {
-            fs.readFile( 'src/mock/config.json', 'utf8', (err, data) => {
-                console.log(111,err)
+            fs.readFile('src/mock/config.json', 'utf8', (err, data) => {
+                console.log(111, err)
                 fs.writeFile(p, data, { encoding: 'utf8' });
             })
         }
@@ -39,7 +40,7 @@ function openWindow() {
         console.log(ex)
         if (!ex) {
             fs.readFile('src/mock/socketconfig.json', 'utf8', (err, data) => {
-                console.log(111,err)
+                console.log(111, err)
                 fs.writeFile(s, data, { encoding: 'utf8' });
             })
         }
@@ -51,4 +52,14 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
         app.quit();
     }
+});
+const ipc = electron.ipcMain;
+const dialog = electron.dialog;
+
+ipc.on('open-dir-dialog', function (event) {
+    dialog.showOpenDialog({
+        properties: ['openFile', 'openDirectory']
+    }, function (files) {
+        if (files) event.sender.send('selected-directory', files)
+    })
 })

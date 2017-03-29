@@ -1,9 +1,10 @@
 let Handlebars = require('handlebars');
 let fs = require('fs');
 let $ = require('jquery');
-const {BrowserWindow} = require('electron').remote;
+const { BrowserWindow } = require('electron').remote;
 let path = require('path');
 let os = require('os');
+const { shell } = require('electron');
 
 let Common = {
     registHelper() {
@@ -42,9 +43,9 @@ let Common = {
         }
         return json;
     },
-    save(json,path) {
+    save(json, path) {
         var deferr = new $.Deferred();
-        fs.writeFile(path||this.getPath(), JSON.stringify(json), function (e) {
+        fs.writeFile(path || this.getPath(), JSON.stringify(json), function (e) {
             if (e) {
                 alert(e)
                 deferr.reject()
@@ -69,4 +70,8 @@ let Common = {
         return jsonstr.replace(/[\n\t\r]/gi, '');
     }
 }
+$('body').on('click', 'a.openBower', (e) => {
+    shell.openExternal($(e.target).attr('href'));
+    return false;
+});
 module.exports = Common;

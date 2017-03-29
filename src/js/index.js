@@ -11,17 +11,18 @@
 
 var $ = require('jquery');
 var fs = require('fs');
-const {shell} = require('electron');
+const { shell } = require('electron');
 const WebSocket = require('ws');
 let com = require('./lib/common');
 let httpserver = require('./lib/httpserver');
+let https = require('./lib/https');
 var Index = {
     server: null,
     iWin: null,
     io: null,
     timer: {},//socket的定时器
-    wss:null,
-    ws:null,
+    wss: null,
+    ws: null,
     init: function () {
         this.checkUpdate();
         $('#btn_start').click(() => {
@@ -38,10 +39,10 @@ var Index = {
         });
         //websocket服务
         $('#btn_start_ws').click((e) => {
-            try{
-                this.wss&& this.wss.close();
+            try {
+                this.wss && this.wss.close();
                 this.wss = new WebSocket.Server({ port: $('#wsport').val() });
-                this.wss.on('connection', (ws)=> {
+                this.wss.on('connection', (ws) => {
                     ws.on('message', function incoming(message) {
                         console.log('received: %s', message);
                         ws.send(message);
@@ -50,17 +51,17 @@ var Index = {
                     // ws.send('something');
                 });
                 $(e.target).val('重启ws服务');
-                $('#wstips').html('开启成功请求地址：ws://localhost:'+$('#wsport').val()+'/ws');
+                $('#wstips').html('开启成功请求地址：ws://localhost:' + $('#wsport').val() + '/ws');
                 this.autoSocket();
-            }catch(e){
+            } catch (e) {
                 alert(e);
             }
         });
         //测试ws服务
         $('#btn_test_ws').click(() => {
-            const ws = new WebSocket('ws://localhost:'+$('#wsport').val()+'/ws');
+            const ws = new WebSocket('ws://localhost:' + $('#wsport').val() + '/ws');
             ws.on('open', function open() {
-               ws.send('测试ws成功!')
+                ws.send('测试ws成功!')
             });
             ws.on('message', function incoming(data, flags) {
                 $('#wstips').html(data)
@@ -119,6 +120,8 @@ var Index = {
         $('#btn_manageSocket').click(() => {
             com.openWin('manageSocket.html');
         });
+        //本地目录建站点
+        https.init($('#btn_selectdir'), $('#btn_https'), $('#httpport'));
     },
     //开始socket服务
     startSocket() {
@@ -154,7 +157,7 @@ var Index = {
                 alert(err);
             } else {
                 //清空所有的定时器
-                for(let j in this.timer){
+                for (let j in this.timer) {
                     this.timer[j] && clearInterval(this.timer[j]);
                 }
                 let config = JSON.parse(data);
@@ -173,7 +176,7 @@ var Index = {
                             return eval(random);
                         })
                         console.log(content);
-                        this.io&&this.io.emit('message', content);
+                        this.io && this.io.emit('message', content);
                         this.ws && this.ws.send(content);
                         i++;
                     }, 1000 / frequency);

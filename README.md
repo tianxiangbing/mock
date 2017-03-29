@@ -9,6 +9,9 @@ socket.io的服务直接基于当前的http服务，websocket服务要设置不�
 或者绿化版本
 [http://www.react-cn.com/app/mock/mock.rar](http://www.react-cn.com/app/mock/mock.rar)
 
+## 功能预览
+![](imgs/step.jpg)
+
 **源码地址：[https://github.com/tianxiangbing/mock](https://github.com/tianxiangbing/mock)**
 # 使用方法
 
@@ -46,3 +49,7 @@ socket.io的服务直接基于当前的http服务，websocket服务要设置不�
     ws.on('message', function incoming(data) {
         $('#wstips').html(data)
     });
+
+9. 新增本地目录建站点
+
+    选择本地文件夹目录，指定端口号，即可开启本地的http静态资源映射。http://localhost:8000

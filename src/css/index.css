@@ -1,125 +1,179 @@
 html,
-body{
+body {
     font-size: 12px;
-    color:#333;
-    background-color:#f5f5f5;
-    font-family:  'Arial Narrow', Arial, sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    font-family: 'Arial Narrow', Arial, sans-serif;
 }
-table{
-    margin:0;
-    padding:0;
-    width:100%;
+
+table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
-.container{
+
+.container {
     line-height: 30px;
-    margin-top:14px;
 }
-table .title{
-    width:120px;
+
+table .title {
+    width: 120px;
     text-align: right;
-    padding:0 10px;
+    padding: 0 10px;
     display: inline-block;
 }
-table td{
+
+table td {
     vertical-align: top;
 }
-textarea{
-    width:100%;
-    min-height:300px;
+
+textarea {
+    width: 100%;
+    min-height: 300px;
 }
-input[type="button"]{
+
+table tbody {
+    border: 1px solid #ccc;
+}
+
+input[type="button"] {
     cursor: pointer;
     margin-right: 12px;
 }
-form>table>tbody>tr>td:first-child{
+
+form>table>tbody>tr>td:first-child {
     text-align: right;
     max-width: 200px;
 }
-form>table>tbody>tr>td:nth-child(2){
+
+form>table>tbody>tr>td:nth-child(2) {
     text-align: left;
 }
-#btn_stop{
-    display: none;   
+
+#btn_stop {
+    display: none;
 }
-input,textarea,select{
-    border:1px solid #cecece;
+
+input,
+textarea,
+select {
+    border: 1px solid #cecece;
     border-radius: 4px;
-    color:#666;
+    color: #666;
     outline: none;
 }
-label{
+
+label {
     vertical-align: middle;
 }
-input[type="radio"]{
+
+input[type="radio"] {
     vertical-align: middle;
-    margin:0 6px;
+    margin: 0 6px;
 }
-.number{
-    width:70px;
+
+.number {
+    width: 70px;
 }
-.add,.minus{
-    width:24px;
+
+.add,
+.minus {
+    width: 24px;
 }
-.manage{
-    padding:0;
-    margin:0;
+
+.manage {
+    padding: 0;
+    margin: 0;
     border-spacing: 0;
-    border-collapse:collapse;
+    border-collapse: collapse;
 }
-.manage td{
-    border:1px solid #cecece;
-    padding:0 10px;
+
+.manage td {
+    border: 1px solid #cecece;
+    padding: 0 10px;
     vertical-align: top;
     line-height: 24px;
 }
-.manage td .defaultvalue{
-    width:200px;
-    height:24px;
+
+.manage td .defaultvalue {
+    width: 200px;
+    height: 24px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-a{
+
+a {
     cursor: pointer;
-    text-decoration:none;
-    color:#333;
+    text-decoration: none;
+    color: #333;
 }
-a:hover,a:link,a:active{
+
+a:hover,
+a:link,
+a:active {
     text-decoration: underline;
-    color:#666;
+    color: #666;
 }
-#json_input{
+
+#json_input {
     height: 500px;
 }
-#results{
-    border:1px solid #cecece;
+
+#results {
+    border: 1px solid #cecece;
     background: #f2f2f2;
     display: inline-block;
 }
 
-.link{
-    position:fixed;
-    bottom:10px;
-    width:100%;
+.link {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
 }
-.link .item{
+
+.link .item {
     display: inline-block;
-    margin-right:10px;
-    font-size:13px;
+    margin-right: 10px;
+    font-size: 13px;
 }
-.add_star{
-    position:fixed;
-    right:0px;
-    top:10px;
+
+.add_star {
+    position: fixed;
+    right: 0px;
+    top: 10px;
 }
-.txt_content{
-    width:800px;
-    min-height:50px;
+
+.txt_content {
+    width: 800px;
+    min-height: 50px;
 }
-.random{
-    width:500px;
+
+.random {
+    width: 500px;
 }
-.sctips{
-    width:200px;
-    height:40px;
+
+.sctips {
+    width: 200px;
+    height: 40px;
     overflow: hidden;
+}
+
+.rowContainter {
+    position: relative;
+    border: 1px solid #cecece;
+    padding: 0px 0 0 0;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.rowContainter h2 {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    line-height: 1;
+    background-color: #f5f5f5;
+    font-size: 15px;
+    font-weight: normal;
+    padding:0 5px;
+    color:#666666;
 }
