@@ -20,7 +20,7 @@
                     <td><input type="text" value="{{url}}" id="url" name="url" readonly="readonly" /></td>
                 </tr>
                 <tr>
-                    <td><span class="title">method:</span></td>
+                    <td><span class="title">传输方式:</span></td>
                     <td>
                         <label><input type="radio" name="method" value="get" {{#equal method "get"}} checked="checked"{{/equal}}/>GET</label>
                         <label><input type="radio" name="method" value="post" {{#equal method "post"}} checked="checked"{{/equal}}/>POST</label>
@@ -29,7 +29,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><span class="title">param:</span></td>
+                    <td><span class="title">参数:</span></td>
                     <td>
                         <table class="paramlist" listvalue="paramlist" name="paramlist">
                             {{#each paramlist}}
@@ -45,14 +45,14 @@
                                     </select>
                                 </td>
                                 <td><label>required:<input type="checkbox" value="true" placeholder="必填" name="required"/></label></td>
-                                <td><input type="button" class="add" value="+" /></td>
+                                <td><input type="button" class="add button orange small" value="+" /></td>
                             </tr>
                             {{/each}}
                         </table>
                     </td>
                 </tr>
                 <tr>
-                    <td><span class="title">return(default):</span></td>
+                    <td><span class="title">返回值(default):</span></td>
                     <td>
                         <textarea class="defaultValue">{{{formatJson returnvalue.default}}}</textarea>
                         <!--<input type="button" class="add_condition" value="add condition"/>-->
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="button" id="btn_save" value="save import"></td>
+                    <td><input type="button" id="btn_save" value="添加接口" class="button red"></td>
                 </tr>
             </table>
         </form>

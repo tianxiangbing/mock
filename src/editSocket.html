@@ -34,7 +34,9 @@
                             <td>
                               <textarea name="content" class="txt_content">{{content}}</textarea>
                             </td>
-                            <td><input type="button" class="add" value="+" /><input type="button" class="minus" value="-" /></td>
+                            <td>
+                                <input type="button" class="add button orange small" value="+" />
+                            </td>
                         </tr>
                         {{/each}}
                     </table>
@@ -48,7 +50,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="button" id="btn_save" value="保存配置"></td>
+                <td><input type="button" class="button red" id="btn_save" value="保存配置"></td>
             </tr>
         </table>
     </form>

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <a href="manageImport.html">manage Import</a>
+    <a href="manageImport.html" class="button blue small">manage Import</a>
     <form id="myForm">
     <table class="container">
         <tr>
@@ -16,7 +16,7 @@
             <td><input type="text" value="/" id="url" name="url" /></td>
         </tr>
         <tr>
-            <td><span class="title">method:</span></td>
+            <td><span class="title">传输方式:</span></td>
             <td>
                 <label><input type="radio" name="method" value="get" checked="checked"/>GET</label>
                 <label><input type="radio" name="method" value="post"/>POST</label>
@@ -25,7 +25,7 @@
             </td>
         </tr>
         <tr>
-            <td><span class="title">param:</span></td>
+            <td><span class="title">参数:</span></td>
             <td>
                 <table class="paramlist" listvalue="paramlist" name="paramlist">
                     <tr listrow>
@@ -40,13 +40,13 @@
                             </select>
                         </td>
                         <td><label>required:<input type="checkbox" value="true" placeholder="必填" name="required"/></label></td>
-                        <td><input type="button" class="add" value="+"/></td>
+                        <td><input type="button" class="add button small orange" value="+"/></td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td><span class="title">return(default):</span></td>
+            <td><span class="title">返回值(default):</span></td>
             <td>
                 <textarea class="defaultValue"></textarea>
                 <!--<input type="button" class="add_condition" value="add condition"/>-->
@@ -54,7 +54,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="button" id="btn_add" value="add import"><input type="button" id="btn_format" value="format json"></td>
+            <td><input type="button" id="btn_add" class="button red" value="add import"><input type="button" class="button green" id="btn_format" value="format json"></td>
         </tr>
     </table>
     </form>
