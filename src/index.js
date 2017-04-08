@@ -15,10 +15,11 @@ const { BrowserWindow } = electron;
 const fs = require('fs');
 // const com = require('./js/common');
 const os = require('os');
-
+var package = require("../package.json");
 let win = null;
 function openWindow() {
-    win = new BrowserWindow({ width: 800, height: 600, icon: 'icon/favicon.ico' });
+    win = new BrowserWindow({  icon: 'icon/favicon.ico' ,title:'mock V'+package.version});
+    win.maximize();
     win.loadURL(path.join('file://', __dirname, '/index.html'));
     // win.setMenu(null);
     win.on('closed', function () {

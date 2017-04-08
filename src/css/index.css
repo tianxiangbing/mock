@@ -39,8 +39,12 @@ table tbody {
 input[type="button"] {
     cursor: pointer;
     margin-right: 12px;
+    padding:2px 4px;
 }
 
+input[type="button"]:hover{
+    background-color:#
+}
 form>table>tbody>tr>td:first-child {
     text-align: right;
     max-width: 200px;
