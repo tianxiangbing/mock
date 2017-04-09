@@ -56,15 +56,17 @@ let Common = {
         });
         return deferr;
     },
+    parentWin: null,
     openWin(url, ops) {
-        let settings = $.extend({ width: screen.availWidth-40, height: screen.availHeight-50 }, ops);
-        this.iWin = new BrowserWindow(settings);
+        let settings = $.extend({ width: screen.availWidth - 40, height: screen.availHeight - 50 }, ops);
+        let iWin = new BrowserWindow(settings);
         // if (!ops || !ops.width) {
         //     this.iWin.maximize();
         // }
-        this.iWin.loadURL(path.join('file://', __dirname, '../' + url));
+        iWin.loadURL(path.join('file://', __dirname, '../' + url));
+
         // this.iWin.webContents.openDevTools();
-        return this.iWin;
+        return iWin;
     },
     formatString(jsonstr) {
         return jsonstr.replace(/[\n\t\r]/gi, '');

@@ -18,7 +18,8 @@ const os = require('os');
 var package = require("../package.json");
 let win = null;
 function openWindow() {
-    win = new BrowserWindow({  icon: 'icon/favicon.ico' ,title:'mock V'+package.version});
+    const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
+    win = new BrowserWindow({ width: width, height: height, icon: 'icon/favicon.ico', title: 'mock V' + package.version });
     win.maximize();
     win.loadURL(path.join('file://', __dirname, '/index.html'));
     // win.setMenu(null);
