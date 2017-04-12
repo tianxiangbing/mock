@@ -29,8 +29,14 @@ let AddImport = {
             this.json.returnvalue = {
                 default: com.formatString($('.defaultValue').val())
             }
+            $('.condition-list').children().each((index, item) => {
+                if ($.trim($(item).find('.paramname').val()) == "") return true;
+                let condition = $(item).find('.paramname').val() + $(item).find('.sel-condition').val() + ($(item).find('.txt_condition').val() || '');
+                this.json.returnvalue[escape(condition)] = $(item).find('.returnValue').val();
+            });
             this.json.key = +new Date();
             this.config[a.url] = this.json;
+            console.log(this.config)
             com.save(this.config).done(() => {
                 alert('ok')
                 location.href = "manageImport.html";
@@ -41,6 +47,10 @@ let AddImport = {
             $('textarea').each((index, elem) => {
                 $(elem).val(com.formatJson($(elem).val()));
             });
+        });
+        $('.add_condition').click((e) => {
+            let html = $('#tpl-condition').html();
+            $(e.target).before(html);
         });
     }
 }

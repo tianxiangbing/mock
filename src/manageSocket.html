@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <a href="socket.html">添加推送</a>
+    <a href="socket.html"  class="button blue small">添加推送</a>
     <div class="container">
     </div>
     <script type="text/x-handlebars" id="temp">
@@ -27,7 +27,7 @@
                     <td>{{{random}}}</td>
                     <td><div class="defaultvalue" title='{{{toString list}}}'>{{{toString list}}}</div></td>
                     <td>{{{enable}}}</td>
-                    <td><a class="edit" data-key="{{{@key}}}" class="button small red">编辑</a> <a class="del button small gray" data-key="{{{@key}}}">删除</a></td>
+                    <td><a class="edit button small red" data-key="{{{@key}}}">编辑</a> <a class="del button small gray" data-key="{{{@key}}}">删除</a></td>
                 </tr>
                 {{/each}}
             </tbody>

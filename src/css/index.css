@@ -64,6 +64,7 @@ select {
     color: #666;
     outline: none;
     line-height: 24px;
+    height: 30px;
     min-width: 86px;
     padding: 2px 4px;
     box-sizing: border-box;

@@ -16,7 +16,7 @@ var fs = require('fs');
 
 let httpserver = {
     port: 8080,
-    config:{},
+    config: {},
     init(port) {
         this.port = port;
         this.bindConfig();
@@ -46,7 +46,28 @@ let httpserver = {
                 for (let url in this.config) {
                     let v = this.config[url];
                     app[v.method](url, function (req, res) {
-                        res.send(v.returnvalue.default);
+                        let obj = v.returnvalue;
+                        console.log(req.query)
+                        let temp = {};
+                        for (let key in req.query) {
+                            temp[key] = req.query[key];
+                            //存入变量中
+                        }
+                        let returnvalue = v.returnvalue.default;
+                        try {
+                            //执行所有的表达式，判断满足条件的返回
+                            for (let k in obj) {
+                                if (k != 'default') {
+                                    if (eval(unescape(k))) {
+                                        returnvalue = obj[k];
+                                        break;
+                                    }
+                                }
+                            }
+                        } catch (e) {
+                            console.log(e)
+                        }
+                        res.send(returnvalue);
                         res.end();
                     });
                 }

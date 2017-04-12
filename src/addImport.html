@@ -46,18 +46,34 @@
             </td>
         </tr>
         <tr>
-            <td><span class="title">返回值(default):</span></td>
+            <td><span class="title">返回值:</span></td>
             <td>
-                <textarea class="defaultValue"></textarea>
-                <!--<input type="button" class="add_condition" value="add condition"/>-->
+                (default)<textarea class="defaultValue"></textarea>
+                <div class="condition-list">
+                    <input type="button" class="add_condition button blue medium" value="添加条件返回"/>
+                </div>
             </td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="button" id="btn_add" class="button red" value="add import"><input type="button" class="button green" id="btn_format" value="format json"></td>
+            <td><input type="button" id="btn_add" class="button red" value="添加接口"><input type="button" class="button green" id="btn_format" value="格式化json"></td>
         </tr>
     </table>
     </form>
+    <script type="text/template" id="tpl-condition">
+        <div class="condition">
+            <label>参数</label>：<input type="text" placeholder="参数名..." class="paramname"/>
+            <select class="sel-condition">
+                <option value="==">==</option>
+                <option value=">">></option>
+                <option value="<"><</option>
+                <option value="<="><=</option>
+                <option value=">=">>=</option>
+            </select>
+            <input type="text" class="txt_condition">
+            <textarea class="returnValue"></textarea>
+        </div>
+    </script>
     <script src="js/addImport.js"></script>
 </body>
 </html>

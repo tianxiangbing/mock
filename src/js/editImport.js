@@ -43,6 +43,11 @@ let EditImport = {
                 location.href = "manageImport.html";
             })
         });
+        $('#btn_format').click(() => {
+            $('textarea').each((index, elem) => {
+                $(elem).val(com.formatJson($(elem).val()));
+            });
+        });
     }
 }
 EditImport.init();
