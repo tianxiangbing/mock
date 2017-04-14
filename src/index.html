@@ -7,7 +7,20 @@
 </head>
 
 <body>
+    <a href="https://tianxiangbing.github.io/mock/updates/mock.exe">download</a>
     <a href="https://tianxiangbing.github.io/mock/" target="_blank">帮助文档</a>
+    
+       <form target="_blank" action="http://192.168.40.85:8080/pe_manager/SDTSE/exportSpotHisPrice.action" name="querySpotHisPriceForm" method="post">
+           <input type="text" name="queryParam.bankID" value="BOC" placeholder="bankID">
+          <input type="text" name="queryParam.businessType" value="FXSPOT" placeholder="businessType">
+          <input type="text" name="queryParam.updateDate" value="20170406" placeholder="updateDate">
+          <input type="text" name="queryParam.updateEndTime" value="232046" placeholder="">
+          <input type="text" name="queryParam.groupCode" value="REALPRICE" placeholder="">
+          <input type="text" name="queryParam.updateStartTime" value="152046" placeholder="">
+          <input type="text" name="queryParam.start" value="1" placeholder="start">
+          <input type="text" name="queryParam.limit" value="30" placeholder="limit">
+          <input type="submit" value="下载即期历史价格" >
+      </form>
     <div class="body">
         <div class="col1">
             <div class="box">

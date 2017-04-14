@@ -5,6 +5,7 @@ const { BrowserWindow } = require('electron').remote;
 let path = require('path');
 let os = require('os');
 const { shell } = require('electron');
+const ipc = require('electron').ipcRenderer;
 
 let Common = {
     registHelper() {
@@ -74,6 +75,10 @@ let Common = {
 }
 $('body').on('click', 'a.openBower', (e) => {
     shell.openExternal($(e.target).attr('href'));
+    return false;
+});
+$('body').on('click','.goMain',(e)=>{
+    ipc.send('go-main')
     return false;
 });
 module.exports = Common;

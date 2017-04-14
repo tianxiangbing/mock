@@ -186,7 +186,7 @@ a:active {
     top: -20px;
     left: 20px;
     line-height: 1;
-    background-color: #f5f5f5;
+    background-color: #ededed;
     font-size: 15px;
     font-weight: normal;
     padding: 0 5px;
@@ -196,7 +196,7 @@ a:active {
 .body {
     width: 1000px;
     margin: 0 auto;
-    overflow: hidden;
+    /*overflow: hidden;*/
     position: fixed;
     top: 50%;
     left: 50%;

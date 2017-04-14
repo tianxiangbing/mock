@@ -18,13 +18,17 @@ const os = require('os');
 var package = require("../package.json");
 let win = null;
 function openWindow() {
-    const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
-    win = new BrowserWindow({ width: width, height: height, icon: 'icon/favicon.ico', title: 'mock V' + package.version });
+    const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
+    win = new BrowserWindow({ icon: 'icon/favicon.ico', title: 'mock V' + package.version, show: false ,backgroundColor: '#ededed'});
     win.maximize();
     win.loadURL(path.join('file://', __dirname, '/index.html'));
     // win.setMenu(null);
     win.on('closed', function () {
         win = null;
+    });
+    //加快显示速度
+    win.once('ready-to-show', () => {
+        win.show()
     });
     // win.webContents.openDevTools();
     let p = path.join(os.homedir(), 'config.json');
@@ -64,4 +68,9 @@ ipc.on('open-dir-dialog', function (event) {
     }, function (files) {
         if (files) event.sender.send('selected-directory', files)
     })
-})
+});
+ipc.on('go-main',function(event){
+    console.log(event)
+    console.log( arguments)
+    win.focus();
+});
