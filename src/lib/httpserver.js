@@ -46,6 +46,10 @@ let httpserver = {
                 for (let url in this.config) {
                     let v = this.config[url];
                     app[v.method](url, function (req, res) {
+                        res.header('Access-Control-Allow-Origin', '*');
+                        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                        res.header('Access-Control-Allow-Headers', 'Content-Type');
+                        res.header('Access-Control-Allow-Credentials','true');
                         let obj = v.returnvalue;
                         console.log(req.query)
                         let temp = {};
