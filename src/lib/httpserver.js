@@ -49,7 +49,7 @@ let httpserver = {
                         res.header('Access-Control-Allow-Origin', '*');
                         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
                         res.header('Access-Control-Allow-Headers', 'Content-Type');
-                        res.header('Access-Control-Allow-Credentials','true');
+                        res.header('Access-Control-Allow-Credentials', 'true');
                         let obj = v.returnvalue;
                         console.log(req.query)
                         let temp = {};
@@ -62,9 +62,15 @@ let httpserver = {
                             //执行所有的表达式，判断满足条件的返回
                             for (let k in obj) {
                                 if (k != 'default') {
-                                    if (eval(unescape(k))) {
-                                        returnvalue = obj[k];
-                                        break;
+                                    try {
+                                        with (temp) {
+                                            if (eval(unescape(k))) {
+                                                returnvalue = obj[k];
+                                                break;
+                                            }
+                                        }
+                                    } catch (e) {
+                                        console.log(e)
                                     }
                                 }
                             }

@@ -12,6 +12,9 @@ let Common = {
         Handlebars.registerHelper('toString', function (v) {
             return Common.formatString(JSON.stringify(v)) || '';
         });
+        Handlebars.registerHelper('getParam', function (v) {
+           return  v.map(x=>x.name).join(';')
+        });
         Handlebars.registerHelper('toDate', function (v) {
             let d = new Date(v);
             return d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
