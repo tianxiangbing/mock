@@ -8,6 +8,7 @@ const { shell } = require('electron');
 const ipc = require('electron').ipcRenderer;
 
 let Common = {
+    winArr :[],
     registHelper() {
         Handlebars.registerHelper('toString', function (v) {
             return Common.formatString(JSON.stringify(v)) || '';
@@ -28,6 +29,9 @@ let Common = {
         });
         Handlebars.registerHelper('formatJson', (v) => {
             return this.formatJson(v);
+        });
+        Handlebars.registerHelper('unescape', (v) => {
+            return unescape(v);
         });
     },
     getPath() {
@@ -68,7 +72,7 @@ let Common = {
         //     this.iWin.maximize();
         // }
         iWin.loadURL(path.join('file://', __dirname, '../' + url));
-
+        this.winArr.push(iWin);
         // this.iWin.webContents.openDevTools();
         return iWin;
     },
@@ -81,7 +85,8 @@ $('body').on('click', 'a.openBower', (e) => {
     return false;
 });
 $('body').on('click','.goMain',(e)=>{
-    ipc.send('go-main')
+    ipc.send('go-main');
+    window.close();
     return false;
 });
 module.exports = Common;

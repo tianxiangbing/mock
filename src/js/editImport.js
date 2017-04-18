@@ -4,7 +4,7 @@ let com = require('./lib/common');
 const query = require('jq-query');
 
 let EditImport = {
-    config:require( com.getPath() )|| [],
+    config: require(com.getPath()) || [],
     url: decodeURIComponent(query.getQuery('url')),
     json: {},
     init() {
@@ -37,6 +37,12 @@ let EditImport = {
             this.json.returnvalue = {
                 default: com.formatString($('.defaultValue').val())
             }
+            $('.condition-list').children('.condition').each((index, item) => {
+                if (($.trim($(item).find('.paramname').val()) == "" && $(item).find('.paramname').length ) || ($(item).find('.txtkey').length && $.trim($(item).find('.txtkey').val()) == "")) return true;
+                let condition = $(item).find('.txtkey').length ? $(item).find('.txtkey').val() : $(item).find('.paramname').val() + $(item).find('.sel-condition').val() + ($(item).find('.txt_condition').val() || '');
+                this.json.returnvalue[escape(condition)] = $(item).find('.returnValue').val();
+            });
+            console.log(this.json)
             this.config[a.url] = this.json;
             com.save(this.config).done(() => {
                 alert('ok')
@@ -47,6 +53,14 @@ let EditImport = {
             $('textarea').each((index, elem) => {
                 $(elem).val(com.formatJson($(elem).val()));
             });
+        });
+        $('.condition-list').on('click', '.minus', function () {
+            let current = $(this).closest('.condition');
+            current.remove();
+        });
+        $('.add_condition').click((e) => {
+            let html = $('#tpl-condition').html();
+            $(e.target).before(html);
         });
     }
 }

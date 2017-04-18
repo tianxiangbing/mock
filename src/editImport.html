@@ -55,15 +55,42 @@
                     <td><span class="title">返回值(default):</span></td>
                     <td>
                         <textarea class="defaultValue">{{{formatJson returnvalue.default}}}</textarea>
-                        <!--<input type="button" class="add_condition" value="add condition"/>-->
+                        <div class="condition-list">
+                            {{#each returnvalue}}
+                            {{#equal @key 'default'}}
+                            {{else}}
+                            <div class="condition">
+                                <label>条件：</label><input type="text" class="txtkey" value="{{{unescape @key}}}"/>
+                                <textarea class="returnValue">{{this}}</textarea>
+                                <input type="button" class="minus button small blue" value="-"/>
+                            </div>
+                            {{/equal}}
+                            {{/each}}
+                            <input type="button" class="add_condition button blue medium" value="添加条件返回" />
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="button" id="btn_save" value="保存接口" class="button red"><input type="button" class="button green" id="btn_format" value="格式化json"></td>
+                    <td><input type="button" id="btn_save" value="保存接口" class="button red"><input type="button" class="button green"
+                            id="btn_format" value="格式化json"></td>
                 </tr>
             </table>
         </form>
+    </script>
+    <script type="text/template" id="tpl-condition">
+        <div class="condition">
+            <label>参数</label>：<input type="text" placeholder="参数名..." class="paramname" />
+            <select class="sel-condition">
+                <option value="==">==</option>
+                <option value=">">></option>
+                <option value="<"><</option>
+                <option value="<="><=</option>
+                <option value=">=">>=</option>
+            </select>
+            <input type="text" class="txt_condition">
+            <textarea class="returnValue"></textarea><input type="button" class="minus button small blue" value="-"/>
+        </div>
     </script>
     <script src="js/editImport.js"></script>
 </body>

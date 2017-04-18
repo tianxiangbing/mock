@@ -19,6 +19,10 @@ let AddImport = {
             let current = $(this).closest('tr');
             current.remove();
         });
+        $('.condition-list').on('click', '.minus', function () {
+            let current = $(this).closest('.condition');
+            current.remove();
+        });
         // $.getJSON('../cache/config.json').done((js)=>{
         //     console.log(js)
         // })

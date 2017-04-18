@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "runtimeExecutable":"electron.cmd",
+            "runtimeExecutable": "electron.cmd",
             "program": "${workspaceRoot}/src/index.js",
             "cwd": "${workspaceRoot}"
         },
@@ -17,6 +17,20 @@
             "request": "attach",
             "name": "附加到进程",
             "port": 5858
+        },
+        {
+            "name": "Debug Renderer Process",
+            "type": "chrome",
+            "request": "launch",
+            "runtimeExecutable": "electron.cmd",
+            "windows": {
+                "runtimeExecutable": "electron.cmd",
+            },
+            "runtimeArgs": [
+                "${workspaceRoot}/src/index.js",
+                "--remote-debugging-port=9222"
+            ],
+            "webRoot": "${workspaceRoot}"
         }
     ]
 }

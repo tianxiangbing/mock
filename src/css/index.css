@@ -6,8 +6,6 @@ body {
     font-family: 'Microsoft YaHei', 'Arial Narrow', Arial, sans-serif;
     /*min-width: 1000px;*/
 }
-
-
 table {
     margin: 0;
     padding: 0;
@@ -127,10 +125,11 @@ a {
 a:hover,
 a:link,
 a:active {
-    text-decoration: underline;
     color: #666;
 }
-
+a.button:hover{
+    color:#fff;
+}
 #json_input {
     height: 500px;
 }
@@ -524,4 +523,15 @@ a:active {
     background: -webkit-gradient(linear, left top, left bottom, from(#f171ab), to(#feb1d3));
     background: -moz-linear-gradient(top, #f171ab, #feb1d3);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f171ab', endColorstr='#feb1d3');
+}
+.condition{
+    position:relative;
+}
+.condition .minus{
+    position:absolute;
+    top:22px;
+    right:-10px;
+    width:30px;
+    height:30px;
+    border-radius: 15px;
 }
