@@ -7,6 +7,7 @@
 </head>
 <body>
     <a href="addImport.html" class="button blue small">添加接口</a>
+    <button class="button green small goMain">返回主界面</button>
     <div class="container">
     </div>
     <script type="text/x-handlebars" id="temp">
@@ -30,7 +31,7 @@
                     <td>{{{getParam paramlist}}}</td>
                     <td><div class="defaultvalue" title='{{{returnvalue.default}}}'>{{{returnvalue.default}}}</div></td>
                     <td>{{{toDate key}}}</td>
-                    <td>
+                     <td>
                         <a class="edit button small red" data-key="{{{url}}}" >编辑</a>
                         <a class="del button small gray" data-key="{{{url}}}">删除</a>
                     </td>

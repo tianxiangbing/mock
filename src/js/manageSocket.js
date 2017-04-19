@@ -29,6 +29,26 @@ let ManageImport = {
             });
             return false;
         });
+        $('.container').on('click', '.start', (e) => {
+            let dom = $(e.target);
+            let url = dom.data('key');
+            this.config[url].enable = 'true';
+            com.save(this.config,com.getSocketPath()).done(() => {
+                // location.reload();
+                dom.addClass('stop gray').removeClass('start red').text('停用');
+            });
+            return false;
+        });
+        $('.container').on('click', '.stop', (e) => {
+            let dom = $(e.target);
+            let url = dom.data('key');
+            this.config[url].enable = 'false';
+            com.save(this.config,com.getSocketPath()).done(() => {
+                // location.reload();
+                dom.addClass('start red').removeClass('stop gray').text('启用');
+            });
+            return false;
+        });
     },
     render() {
         let complete = Handlebars.compile($('#temp').html());

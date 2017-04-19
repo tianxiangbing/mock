@@ -7,6 +7,7 @@
 </head>
 <body>
     <a href="socket.html"  class="button blue small">添加推送</a>
+    <button class="button green small goMain">返回主界面</button>
     <div class="container">
     </div>
     <script type="text/x-handlebars" id="temp">
@@ -16,7 +17,7 @@
                     <th>频率</th>
                     <th>替换规则</th>
                     <th>推送消息内容</th>
-                    <th>是否启用</th>
+                    <th>启/停用</th>
                     <th>操作</th>
                 </tr>
             </thead>
@@ -26,7 +27,7 @@
                     <td>{{{frequency}}}</td>
                     <td>{{{random}}}</td>
                     <td><div class="defaultvalue" title='{{{toString list}}}'>{{{toString list}}}</div></td>
-                    <td>{{{enable}}}</td>
+                    <td>{{{enable}}} {{#equal enable 'false'}} <a class="start button small red" data-key="{{{@key}}}" >启用</a>{{else}} <a class="stop button small gray" data-key="{{{@key}}}">停用</a>{{/equal}}</td>
                     <td><a class="edit button small red" data-key="{{{@key}}}">编辑</a> <a class="del button small gray" data-key="{{{@key}}}">删除</a></td>
                 </tr>
                 {{/each}}
