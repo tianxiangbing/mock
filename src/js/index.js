@@ -100,7 +100,7 @@ var Index = {
             console.log(package.version)
             if (result.version > package.version) {
                 if (confirm('有新的功能出现，是否下载体验？')) {
-                    shell.openExternal('https://tianxiangbing.github.io/mock/updates/mock.exe');
+                    shell.openExternal('https://tianxiangbing.github.io/mock/download.html');
                 }
             }
         })
