@@ -13,6 +13,8 @@ socket.io的服务直接基于当前的http服务，websocket服务要设置不�
 
 [http://www.react-cn.com/app/mock/mock.rar](http://www.react-cn.com/app/mock/mock.rar)
 
+## [历史版本下载](https://tianxiangbing.github.io/mock/download)
+
 ## 功能预览
 ![](imgs/step.jpg)
 
