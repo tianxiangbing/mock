@@ -35,7 +35,7 @@ function openWindow() {
     fs.exists(p, (ex) => {
         console.log(ex)
         if (!ex) {
-            fs.readFile('src/mock/config.json', 'utf8', (err, data) => {
+            fs.readFile(path.join(__dirname,'/mock/config.json'), 'utf8', (err, data) => {
                 console.log(111, err)
                 fs.writeFile(p, data, { encoding: 'utf8' });
             })
@@ -45,7 +45,7 @@ function openWindow() {
     fs.exists(s, (ex) => {
         console.log(ex)
         if (!ex) {
-            fs.readFile('src/mock/socketconfig.json', 'utf8', (err, data) => {
+            fs.readFile(path.join(__dirname,'/mock/socketconfig.json'), 'utf8', (err, data) => {
                 console.log(111, err)
                 fs.writeFile(s, data, { encoding: 'utf8' });
             })
