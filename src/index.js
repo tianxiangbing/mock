@@ -19,7 +19,7 @@ var package = require("../package.json");
 let win = null;
 function openWindow() {
     const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
-    win = new BrowserWindow({ icon: 'icon/favicon.ico', title: 'mock V' + package.version, show: false ,backgroundColor: '#ededed',minWidth:1000});
+    win = new BrowserWindow({ icon: 'icon/favicon.ico', title: 'mock V' + package.version, show: false, backgroundColor: '#ededed', minWidth: 1000 });
     win.maximize();
     win.loadURL(path.join('file://', __dirname, '/index.html'));
     // win.setMenu(null);
@@ -35,7 +35,7 @@ function openWindow() {
     fs.exists(p, (ex) => {
         console.log(ex)
         if (!ex) {
-            fs.readFile(path.join(__dirname,'/mock/config.json'), 'utf8', (err, data) => {
+            fs.readFile(path.join(__dirname, '/mock/config.json'), 'utf8', (err, data) => {
                 console.log(111, err)
                 fs.writeFile(p, data, { encoding: 'utf8' });
             })
@@ -45,7 +45,7 @@ function openWindow() {
     fs.exists(s, (ex) => {
         console.log(ex)
         if (!ex) {
-            fs.readFile(path.join(__dirname,'/mock/socketconfig.json'), 'utf8', (err, data) => {
+            fs.readFile(path.join(__dirname, '/mock/socketconfig.json'), 'utf8', (err, data) => {
                 console.log(111, err)
                 fs.writeFile(s, data, { encoding: 'utf8' });
             })
@@ -69,8 +69,8 @@ ipc.on('open-dir-dialog', function (event) {
         if (files) event.sender.send('selected-directory', files)
     })
 });
-ipc.on('go-main',function(event){
+ipc.on('go-main', function (event) {
     console.log(event)
-    console.log( arguments)
+    console.log(arguments)
     win.focus();
 });

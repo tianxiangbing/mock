@@ -15,6 +15,9 @@ let com = require('./lib/common');
 let httpserver = require('./lib/httpserver');
 let https = require('./lib/https');
 let Socket = require('./lib/socket');
+const crypto = require('crypto');
+const fs = require('fs');
+
 var Index = {
     server: null,
     iWin: null,
@@ -30,7 +33,7 @@ var Index = {
         });
         //websocket服务
         $('#btn_start_ws').click(() => {
-           Socket.startws();
+            Socket.startws();
         });
         //测试ws服务
         $('#btn_test_ws').click(() => {
@@ -87,6 +90,30 @@ var Index = {
         });
         //本地目录建站点
         https.init($('#btn_selectdir'), $('#btn_https'), $('#httpport'));
+        //md5加密
+        const holder = document.getElementById('holder')
+        holder.ondragover = () => {
+            return false;
+        }
+        holder.ondragleave = holder.ondragend = () => {
+            return false;
+        }
+        holder.ondrop = (e) => {
+            e.preventDefault()
+            html = '';
+            for (let f of e.dataTransfer.files) {
+                console.log('File(s) you dragged here: ', f.path)
+                md5File(f.path,  (err, hash)=> {
+                    if(!err){
+                        html += hash
+                        holder.innerHTML = html;
+                    }else{
+                        throw(err)
+                    }
+                })
+            }
+            return false;
+        }
     },
     showtip: (text) => {
         $('#tips').html(text);
@@ -105,5 +132,23 @@ var Index = {
             }
         })
     }
+}
+
+//md5加密
+function md5File(filename, cb) {
+    if (typeof cb !== 'function') throw new TypeError('Argument cb must be a function')
+
+    var output = crypto.createHash('md5')
+    var input = fs.createReadStream(filename)
+
+    input.on('error', function (err) {
+        cb(err)
+    })
+
+    output.once('readable', function () {
+        cb(null, output.read().toString('hex'))
+    })
+
+    input.pipe(output)
 }
 Index.init();

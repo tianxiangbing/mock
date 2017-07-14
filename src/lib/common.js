@@ -9,6 +9,7 @@ const ipc = require('electron').ipcRenderer;
 
 let Common = {
     winArr :[],
+    cachewin :[],
     registHelper() {
         Handlebars.registerHelper('toString', function (v) {
             return Common.formatString(JSON.stringify(v)) || '';
@@ -65,6 +66,21 @@ let Common = {
         return deferr;
     },
     parentWin: null,
+    createCacheWin(){
+        //缓存窗口
+        let self  = this;
+        for(let i =1;i;i--){
+            (function(){
+                let win = new BrowserWindow({show:false, transparent :true,backgroundColor:'#333333', resizable:false,maximizable :false});
+                // callback && win.webContents.on('did-finish-load',callback);
+                win.on('close',()=>{
+                    win= null;
+                });
+                self.cachewin.push(win);
+            })();
+        }
+        // console.log(this.cachewin)
+    },
     openWin(url, ops) {
         let settings = $.extend({ width: screen.availWidth - 40, height: screen.availHeight - 50 }, ops);
         let iWin = new BrowserWindow(settings);

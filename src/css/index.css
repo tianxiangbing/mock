@@ -535,3 +535,9 @@ a.button:hover{
     height:30px;
     border-radius: 15px;
 }
+#holder{
+    border:2px dashed #ccc;
+    margin:10px;
+    padding:5px;
+    min-height: 40px;
+}
