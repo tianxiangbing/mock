@@ -32,13 +32,14 @@ Source: "out/mock-win32-x64/resources/*"; DestDir: "{app}/resources"
 Source: "out/mock-win32-x64/locales/*"; DestDir: "{app}/locales"    
 ;NOTE: Don't use "Flags: ignoreversion" on any shared system files
 [Icons]
-Name: {commondesktop}\Mock客户端; Filename: {app}\mock.exe; Tasks: desktopicon; WorkingDir: {app}; Comment: 使用Mock客户端; IconIndex: 0;Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Mock客户端"; Filename: "{app}\mock.exe"; Tasks: quicklaunchicon
+Name: {commondesktop}\Mock客户端; Filename: {app}\mock.exe; Tasks: desktopicon; WorkingDir: {app}; Comment: 使用Mock客户端; IconIndex: 0
+;Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Mock客户端"; Filename: "{app}\mock.exe"; Tasks: quicklaunchicon
 Name: {group}\Mock客户端; Filename: {app}\electron.exe; WorkingDir: {app}; IconIndex: 0; Comment: 使用Mock客户端
 Name: {group}\{cm:UninstallProgram,Mock客户端}; Filename: {uninstallexe}; Comment: 卸载Mock客户端
 [UninstallDelete]
 Name: {app}\*; Type: filesandordirs
 
 [Run]
-
+Filename: "{app}\mock.exe";Description:"初始化程序";Flags:nowait; StatusMsg:"正在启动Mock客户端";
 [Messages]
 SelectDirDesc=Vista用户请不要将软件安装到系统盘的Program Files目录下!
