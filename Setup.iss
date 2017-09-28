@@ -18,7 +18,7 @@ VersionInfoCompany=田想兵
 VersionInfoDescription=Mock接口、推送、前端工具
 AppComments=Mock客户端
 UninstallDisplayIcon={app}\mock.exe
-OutputDir=docs\updates\
+OutputDir=download\
 [Languages]
 Name: "chinese"; MessagesFile: "compiler:Languages\ChineseSample.isl"
 
