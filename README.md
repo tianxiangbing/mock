@@ -3,11 +3,7 @@
 socket.io的服务直接基于当前的http服务，websocket服务要设置不同的端口号。调用方式与官方接口一致。
 
 本工具下载地址：
-[https://tianxiangbing.github.io/mock/updates/mock.exe](https://tianxiangbing.github.io/mock/updates/mock.exe)
-或者
-[http://www.lovewebgames.com/app/mock/mock.exe](http://www.lovewebgames.com/app/mock/mock.exe)
-或者绿化版本
-[http://www.react-cn.com/app/mock/mock.rar](http://www.react-cn.com/app/mock/mock.rar)
+[https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe)
 
 ## 功能预览
 ![](imgs/step.jpg)
