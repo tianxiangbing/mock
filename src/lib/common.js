@@ -34,6 +34,9 @@ let Common = {
         Handlebars.registerHelper('unescape', (v) => {
             return unescape(v);
         });
+        Handlebars.registerHelper('SafeString', function(str){
+            return (unescape(str));
+        })
     },
     getPath() {
         return path.join(os.homedir(), 'config.json');

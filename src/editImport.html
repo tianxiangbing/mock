@@ -61,7 +61,7 @@
                             {{#equal @key 'default'}}
                             {{else}}
                             <div class="condition">
-                                <label>条件：</label><input type="text" class="txtkey" value="{{{unescape @key}}}"/>
+                                <label>条件：</label><input type="text" class="txtkey w100p" value='{{SafeString @key}}'/>
                                 <textarea class="returnValue">{{this}}</textarea>
                                 <input type="button" class="minus button small blue" value="-"/>
                             </div>

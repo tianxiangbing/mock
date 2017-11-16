@@ -35,7 +35,7 @@ let AddImport = {
             }
             $('.condition-list').children().each((index, item) => {
                 if ($.trim($(item).find('.paramname').val()) == "") return true;
-                let condition = $(item).find('.paramname').val() + $(item).find('.sel-condition').val() + ($(item).find('.txt_condition').val() || '');
+                let condition = $(item).find('.paramname').val() + $(item).find('.sel-condition').val() +"'"+ ($(item).find('.txt_condition').val() || '')+"'";
                 this.json.returnvalue[escape(condition)] = $(item).find('.returnValue').val();
             });
             this.json.key = +new Date();

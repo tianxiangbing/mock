@@ -10,10 +10,11 @@
  * Desc: 模拟http服务
  */
 var express = require('express');
+var bodyParser = require("body-parser");  
 var app = express();
 let com = require('./common');
 var fs = require('fs');
-
+app.use(bodyParser.urlencoded({ extended: false }));  
 let httpserver = {
     port: 8080,
     config: {},
@@ -52,9 +53,11 @@ let httpserver = {
                         res.header('Access-Control-Allow-Credentials', 'true');
                         let obj = v.returnvalue;
                         console.log(req.query)
+                        console.log(req.body)
+                        let query = req.method ==='GET'?req.query:req.body;
                         let temp = {};
-                        for (let key in req.query) {
-                            temp[key] = req.query[key];
+                        for (let key in query) {
+                            temp[key] = query[key];
                             //存入变量中
                         }
                         let returnvalue = v.returnvalue.default;

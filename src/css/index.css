@@ -541,3 +541,9 @@ a.button:hover{
     padding:5px;
     min-height: 40px;
 }
+.w200{
+    width:200px;
+}
+.w100p{
+    width:100%;
+}

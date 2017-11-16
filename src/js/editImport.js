@@ -39,7 +39,7 @@ let EditImport = {
             }
             $('.condition-list').children('.condition').each((index, item) => {
                 if (($.trim($(item).find('.paramname').val()) == "" && $(item).find('.paramname').length ) || ($(item).find('.txtkey').length && $.trim($(item).find('.txtkey').val()) == "")) return true;
-                let condition = $(item).find('.txtkey').length ? $(item).find('.txtkey').val() : $(item).find('.paramname').val() + $(item).find('.sel-condition').val() + ($(item).find('.txt_condition').val() || '');
+                let condition = $(item).find('.txtkey').length ? $(item).find('.txtkey').val() : ($(item).find('.paramname').val() + $(item).find('.sel-condition').val() +"'"+  ($(item).find('.txt_condition').val()+"'") || '');
                 this.json.returnvalue[escape(condition)] = $(item).find('.returnValue').val();
             });
             console.log(this.json)
