@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改图标icon</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <form id="myForm">
+    <table class="container">
+        <tr>
+            <td><span class="title">执行文件：</span></td>
+            <td><input type="button" id="btn_selectfile" class="button white medium" value="选择文件"/><span id="sp_filepath"></span></td>
+         </tr>
+         <tr>
+            <td><span class="title">图标文件：</span></td>
+            <td><input type="button" id="btn_selecticon" class="button white medium" value="选择图标"/><span id="sp_iconpath"></span></td>
+        </tr>
+        <tr>
+            <td><span class="title">其他信息：</span></td>
+            <td>
+                <textarea name="otherInfo" id="otherInfo" cols="30" rows="10">
+{
+    "version-string": {
+        "CompanyName": "公司名称",
+        "LegalCopyright": "Copyright © 2017-2018 Mock project",
+        "ProductName": "产品名称",
+        "OriginalFilename": "原始文件名",
+        "FileDescription": "文件描述"
+    },
+    "file-version": "1.0.0",
+    "product-version": "1.0.0"
+}
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" id="btn_saveicon" class="button white medium" value="开始修改"/>
+            </td>
+        </tr>
+    </table>
+    </form>
+    <script src="js/editIcon.js"></script>
+</body>
+</html>

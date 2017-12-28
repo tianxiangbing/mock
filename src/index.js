@@ -69,6 +69,16 @@ ipc.on('open-dir-dialog', function (event) {
         if (files) event.sender.send('selected-directory', files)
     })
 });
+ipc.on('open-file-dialog',(event,key,ext)=>{
+    ext = ext ||"*";
+    dialog.showOpenDialog({
+        filters:[{name:ext,extensions:[ext]}],
+        properties: ['openFile']
+    }, function (files) {
+        console.log(key,files);
+        if (files) event.sender.send(key, files)
+    })
+});
 ipc.on('go-main', function (event) {
     console.log(event)
     console.log(arguments)
