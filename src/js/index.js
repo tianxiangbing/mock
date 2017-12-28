@@ -76,6 +76,9 @@ var Index = {
         $('#btn_validateJson').click(() => {
             com.openWin('validateJson.html');
         });
+        $('#btn_icon').click(()=>{
+            com.openWin('editIcon.html');
+        });
         $('.link a').click((e) => {
             let href = $(e.target).attr('href');
             shell.openExternal(href);
@@ -124,8 +127,13 @@ var Index = {
     checkUpdate() {
         var package = require("../package.json");
         $.getJSON('https://tianxiangbing.github.io/mock/checkUpdate.html', (result) => {
-            console.log(package.version)
+            // console.log(package.version)
             if (result.version > package.version) {
+                if(result.force){
+                    alert('有重大功能更新，请前往下载！')
+                    //强制更新
+                    shell.openExternal('https://tianxiangbing.github.io/mock/download');
+                }else
                 if (confirm('有新的功能出现，是否下载体验？')) {
                     shell.openExternal('https://tianxiangbing.github.io/mock/download');
                 }

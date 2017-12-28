@@ -25,6 +25,7 @@
     "handlebars": "^4.0.6",
     "jq-query": "latest",
     "jquery": "^3.1.1",
+    "rcedit": "^0.9.0",
     "socket.io": "^1.7.3",
     "ws": "^2.2.2"
   },
