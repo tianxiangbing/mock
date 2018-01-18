@@ -17,7 +17,6 @@ let https = require('./lib/https');
 let Socket = require('./lib/socket');
 const crypto = require('crypto');
 const fs = require('fs');
-
 var Index = {
     server: null,
     iWin: null,
