@@ -1,6 +1,6 @@
 const ipc = require('electron').ipcRenderer;
 const $ = require('jquery');
-const nodercedit = require('rcedit');
+const nodercedit = require('../../app.asar.unpacked/node_modules/rcedit');
 const path = require('path');
 const {shell} = require('electron');
 
@@ -31,7 +31,7 @@ const EditIcon = {
             options.icon = this.iconpath;
             nodercedit(this.filepath, options,  (error)=> {
                 if (error) {
-                    alert(error);
+                    alert(JSON.stringify(error));
                 }else {
                     alert('修改成功!');
                     shell.showItemInFolder(this.filepath);

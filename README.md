@@ -51,3 +51,4 @@ socket.io的服务直接基于当前的http服务，websocket服务要设置不�
     选择本地文件夹目录，指定端口号，即可开启本地的http静态资源映射。http://localhost:8000
 
 10. 新增md5文件加密
+11. 新增修改exe的icon图标

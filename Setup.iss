@@ -11,9 +11,9 @@ AppSupportURL=https://github.com/tianxiangbing/
 AppUpdatesURL=https://github.com/tianxiangbing/
 DefaultGroupName=Mock客户端
 OutputBaseFilename=mock
-Compression=lzma2
+Compression=lzma2/ultra64
 SolidCompression=true
-VersionInfoVersion=1.0.4
+VersionInfoVersion=1.0.7
 VersionInfoCompany=田想兵
 VersionInfoDescription=Mock接口、推送、前端工具
 AppComments=Mock客户端
@@ -28,8 +28,10 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Ad
 [Files]
 ; 应用Mock客户端本身的内容    
 Source: "out/mock-win32-x64/*"; DestDir: "{app}"           
-Source: "out/mock-win32-x64/resources/*"; DestDir: "{app}/resources"       
-Source: "out/mock-win32-x64/locales/*"; DestDir: "{app}/locales"    
+Source: "out/mock-win32-x64/resources/*"; DestDir: "{app}/resources"     
+Source: "out/mock-win32-x64/resources/app.asar.unpacked/node_modules/rcedit/*"; DestDir: "{app}/resources/app.asar.unpacked/node_modules/rcedit"       
+Source: "out/mock-win32-x64/resources/app.asar.unpacked/node_modules/rcedit/bin/*"; DestDir: "{app}/resources/app.asar.unpacked/node_modules/rcedit/bin"  
+Source: "out/mock-win32-x64/resources/app.asar.unpacked/node_modules/rcedit/lib/*"; DestDir: "{app}/resources/app.asar.unpacked/node_modules/rcedit/lib"    
 ;NOTE: Don't use "Flags: ignoreversion" on any shared system files
 [Icons]
 Name: {commondesktop}\Mock客户端; Filename: {app}\mock.exe; Tasks: desktopicon; WorkingDir: {app}; Comment: 使用Mock客户端; IconIndex: 0

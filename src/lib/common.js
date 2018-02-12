@@ -92,7 +92,7 @@ let Common = {
         // }
         iWin.loadURL(path.join('file://', __dirname, '../' + url));
         this.winArr.push(iWin);
-        // this.iWin.webContents.openDevTools();
+        // iWin.webContents.openDevTools();
         return iWin;
     },
     formatString(jsonstr) {
