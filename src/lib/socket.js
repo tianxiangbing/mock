@@ -110,7 +110,7 @@ const Socket = {
                 for (var k in config) {
                     let v = config[k];
                     let frequency = v.frequency;
-                    if (v.enable == false) continue;
+                    if (v.enable == "false") continue;
                     let i = 0;
                     this.timer[k] = setInterval(() => {
                         if (i >= v.list.length) {
