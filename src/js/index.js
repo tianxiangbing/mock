@@ -90,6 +90,10 @@ var Index = {
         $('#btn_manageSocket').click(() => {
             com.openWin('manageSocket.html');
         });
+        //接口报文生成
+        $('#btn_impotJson').click(()=>{
+            com.openWin('importJson.html');
+        })
         //本地目录建站点
         https.init($('#btn_selectdir'), $('#btn_https'), $('#httpport'));
         //md5加密
