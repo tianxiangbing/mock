@@ -1,11 +1,11 @@
 {
   "name": "mock",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "mock工具:该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。",
-  "main": "src/index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron src/index.js",
+    "start": "electron .",
     "packager": "electron-packager . mock --electron-version=1.6.6 --asar.unpack=**/rcedit/**/*.* --overwrite --platform=win32 --arch=x64 --icon=src/icon/favicon.ico --out=out  --version-string.FileDescription=mock --version-string.ProductName=mock --ignore=\"docs,download,imgs,script\"",
     "installer": "node ./script/installer.js"
   },
@@ -32,6 +32,10 @@
     "ws": "^2.3.1"
   },
   "devDependencies": {
-    "electron-winstaller": "^2.6.3"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "electron-winstaller": "^2.6.3",
+    "webpack": "^4.5.0"
   }
 }

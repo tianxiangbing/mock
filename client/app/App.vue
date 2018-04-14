@@ -1,0 +1,12 @@
+<style>
+</style>
+<template>
+  <div>
+      asdflkjlkj
+    </div>
+</template>
+<style>
+body{
+  background:gray;
+}
+</style>
