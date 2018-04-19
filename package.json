@@ -1,6 +1,10 @@
 {
   "name": "mock",
+<<<<<<< HEAD
   "version": "1.0.10",
+=======
+  "version": "1.0.9",
+>>>>>>> a58b5e69e4d62bf0244ea4a9807540447c92fbdf
   "description": "mock工具:该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。",
   "main": "src/index.js",
   "scripts": {
