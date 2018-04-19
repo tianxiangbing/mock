@@ -75,7 +75,7 @@ var Index = {
         $('#btn_validateJson').click(() => {
             com.openWin('validateJson.html');
         });
-        $('#btn_icon').click(()=>{
+        $('#btn_icon').click(() => {
             com.openWin('editIcon.html');
         });
         $('.link a').click((e) => {
@@ -90,6 +90,14 @@ var Index = {
         $('#btn_manageSocket').click(() => {
             com.openWin('manageSocket.html');
         });
+        //接口报文生成
+        $('#btn_impotJson').click(() => {
+            com.openWin('importJson.html');
+        })
+        //字典数据生成
+        $('#btn_dictionariesJson').click(() => {
+            com.openWin('dictionariesJson.html')
+        })
         //本地目录建站点
         https.init($('#btn_selectdir'), $('#btn_https'), $('#httpport'));
         //md5加密
@@ -105,12 +113,12 @@ var Index = {
             html = '';
             for (let f of e.dataTransfer.files) {
                 console.log('File(s) you dragged here: ', f.path)
-                md5File(f.path,  (err, hash)=> {
-                    if(!err){
+                md5File(f.path, (err, hash) => {
+                    if (!err) {
                         html += hash
                         holder.innerHTML = html;
-                    }else{
-                        throw(err)
+                    } else {
+                        throw (err)
                     }
                 })
             }
@@ -123,19 +131,27 @@ var Index = {
             $('#tips').html('');
         }, 1000)
     },
+    returnVersion(version) {
+        return Number(version.replace(/\d+/g, function ($1) {
+            return String('00' + $1).substr(-2)
+        }).replace(/\./g, ''));
+    },
     checkUpdate() {
         var package = require("../package.json");
         $.getJSON('https://tianxiangbing.github.io/mock/checkUpdate.html', (result) => {
             // console.log(package.version)
-            if (result.version > package.version) {
-                if(result.force){
+            let currVersion = this.returnVersion(package.version);
+            let originVersion = this.returnVersion(result.version);
+            if (originVersion > currVersion) {
+                if (result.force) {
                     alert('有重大功能更新，请前往下载！')
                     //强制更新
                     shell.openExternal('https://tianxiangbing.github.io/mock/download');
-                }else
-                if (confirm('有新的功能出现，是否下载体验？')) {
-                    shell.openExternal('https://tianxiangbing.github.io/mock/download');
-                }
+                    com.exit();
+                } else
+                    if (confirm('有新的功能出现，是否下载体验？')) {
+                        shell.openExternal('https://tianxiangbing.github.io/mock/download');
+                    }
             }
         })
     }

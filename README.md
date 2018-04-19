@@ -52,3 +52,7 @@ socket.io的服务直接基于当前的http服务，websocket服务要设置不�
 
 10. 新增md5文件加密
 11. 新增修改exe的icon图标
+12. 接口文档快速转换成json格式
+
+![](imgs/importjson.jpg)
+![](imgs/importjson-2.jpg)

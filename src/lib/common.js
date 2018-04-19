@@ -97,6 +97,9 @@ let Common = {
     },
     formatString(jsonstr) {
         return jsonstr.replace(/[\n\t\r]/gi, '');
+    },
+    exit(){
+        ipc.send('exit')
     }
 }
 $('body').on('click', 'a.openBower', (e) => {

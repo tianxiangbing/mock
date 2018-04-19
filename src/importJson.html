@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>接口报文自动生成json格式</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+    <div><label>外层json结构:</label><textarea id="wrap_input" class="h150">
+{
+    "success": true,
+    "data": {
+        "result": @json
+    }
+}
+    </textarea></div>
+    <div><textarea id="import_input" placeholder="请复制接口文档内容到此处"></textarea></div>
+    <div><input type="button" id="btn_toJson" class="button red" value="生成json格式报文"/></div>
+    <div id="result" style="display:none;">
+        <textarea id="json_output" class="h150"></textarea>
+        <div>
+            <input type="button" id="btn_copy" class="button orange" value="复制内容"/>
+            <button class="button green goMain">返回主界面</button>
+        </div>
+    </div>
+    <script src="js/importJson.js"></script>
+</body>
+</html>

@@ -547,3 +547,7 @@ a.button:hover{
 .w100p{
     width:100%;
 }
+.h150{
+    height: 150px;
+    min-height: 100px;
+}

@@ -84,3 +84,6 @@ ipc.on('go-main', function (event) {
     console.log(arguments)
     win.focus();
 });
+ipc.on('exit',function(){
+    app.exit();
+});

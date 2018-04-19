@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据字典生成</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+    <div><label>字典字段:</label>
+        <input id="field_input" type="text" value="value text">
+    </div>
+    <div><textarea id="import_input" placeholder="请复制字典数据内容到此处"></textarea></div>
+    <div><input type="button" id="btn_toJson" class="button red" value="生成json格式报文"/></div>
+    <div id="result" style="display:none;">
+        <textarea id="json_output" class="h150"></textarea>
+        <div>
+            <input type="button" id="btn_copy" class="button orange" value="复制内容"/>
+            <button class="button green goMain">返回主界面</button>
+        </div>
+    </div>
+    <script src="js/dictionariesJson.js"></script>
+</body>
+</html>
