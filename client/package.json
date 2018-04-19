@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env  NODE_ENV=development  node server",
     "build": "cross-env NODE_ENV=production node publish",
-    "test": "cross-env NODE_ENV=production node server"
+    "test": "webpack-dev-server"
   },
   "dependencies": {
     "vue": "^2.5.13",
@@ -19,9 +19,16 @@
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^2.1.4",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
     "vue-loader": "^14.2.2",
+    "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.5.0",
+    "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14",
     "webpack-dev-server": "^3.1.3"
   },

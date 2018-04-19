@@ -1,36 +1,16 @@
-const path = require('path');
 
-const config = {
-    entry: './app/main.js',
-    mode: 'production',
+let path = require('path')
+module.exports = {
+    entry: './app/app.js',
+    mode:'development',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'app.js',
-        publicPath:path.resolve(__dirname, './dist')
+        filename: 'app.js'//,
+        // path: __dirname + '/dist',        //真实存放路径
+        // publicPath: isDev ?
+        //     '/' :                        //开发引用路径
+        //     ''  //发布引用路径
     },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['es2015']
-                    }
-                }
-            },
-            {
-                test: /\.vue$/,
-                use: {
-                    loader: 'vue-loader'
-                }
-            },
-            test:'\.css$',
-            use:{
-                loader:'css-loader'
-            }
-        ]
-    }
-};
-
-module.exports = config
+    devServer: {
+        port: 9000
+      }
+}
