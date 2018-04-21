@@ -10,7 +10,7 @@ body {
 }
 </style>
 <script>
-import "./css/style.css";
+import "./assets/style.css";
 export default {
   name: "App",
   components: {
