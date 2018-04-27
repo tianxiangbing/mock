@@ -9,18 +9,21 @@ console.log(isDev)
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var htmlPlugin = new HtmlWebpackPlugin({
     title: "首页",
-    filename: 'index.html',
+    filename: '../index.html',
     template: "template.html"
 });
 const config = {
-    entry: './app/main.js',
+    entry: {
+        app: ['./app/main.js'],
+        vendor: ["vue", "vuex", 'vue-router']
+    },
     mode: isDev ? 'development' : 'production',
     context: __dirname,
     output: {
-        filename: 'app.js',
-        path: __dirname + '/dist',        //真实存放路径
+        filename: '[name].js',
+        path: __dirname + '/dist/assets',        //真实存放路径
         publicPath: isDev ?
-            '/' :                        //开发引用路径
+            '/dist/' :                        //开发引用路径
             ''  //发布引用路径
     },
     module: {

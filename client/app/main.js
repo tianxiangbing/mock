@@ -1,10 +1,9 @@
 ///txb 
 import Vue from 'vue';
 import App from './App.vue';
+import VueRouter from 'vue-router';
+import router from './router/routes';
 new Vue({
-    el: '#app',
-    render: h => h(App)
-})
-import Component from './componet.js'
-let com = new Component();
-console.log(111)
+  router,
+  render: h => h(App)
+}).$mount('#app')

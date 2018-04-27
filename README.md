@@ -1,3 +1,5 @@
+2.0.0已移至新的仓库中开发，全新体验正在开始。
+https://github.com/tianxiangbing/frontEndTool](https://github.com/tianxiangbing/frontEndTool)
 # mock工具
 该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。针对由socket.io和websocket的推送服务进行的不同的支持。
 socket.io的服务直接基于当前的http服务，websocket服务要设置不同的端口号。调用方式与官方接口一致。

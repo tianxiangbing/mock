@@ -19,7 +19,8 @@ const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
 const path = require('path');
 let config = require("./webpack.config.js");
+// config.entry.app.unshift("webpack-dev-server/client?http://localhost:52013/");
 let compiler = webpack(config);
-let server  = new WebpackDevServer(compiler,{
+let server = new WebpackDevServer(compiler, {
 });
-server.listen(52013,'127.0.0.1');
+server.listen(52013, '127.0.0.1');
