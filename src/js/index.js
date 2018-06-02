@@ -142,14 +142,15 @@ var Index = {
             // console.log(package.version)
             let currVersion = this.returnVersion(package.version);
             let originVersion = this.returnVersion(result.version);
+            result.message = result.message||"修复问题";
             if (originVersion > currVersion) {
                 if (result.force) {
-                    alert('有重大功能更新，请前往下载！')
+                    alert('有重大功能更新，请前往下载！版本更新内容：'+result.message)
                     //强制更新
                     shell.openExternal('https://tianxiangbing.github.io/mock/download');
                     com.exit();
                 } else
-                    if (confirm('有新的功能出现，是否下载体验？')) {
+                    if (confirm('有新的功能出现，是否下载体验？版本更新内容：'+result.message)) {
                         shell.openExternal('https://tianxiangbing.github.io/mock/download');
                     }
             }

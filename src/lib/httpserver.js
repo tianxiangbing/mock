@@ -10,11 +10,11 @@
  * Desc: 模拟http服务
  */
 var express = require('express');
-var bodyParser = require("body-parser");  
+var bodyParser = require("body-parser");
 var app = express();
 let com = require('./common');
 var fs = require('fs');
-app.use(bodyParser.urlencoded({ extended: false }));  
+app.use(bodyParser.urlencoded({ extended: false }));
 let httpserver = {
     port: 8080,
     config: {},
@@ -44,17 +44,27 @@ let httpserver = {
                 alert(err);
             } else {
                 this.config = JSON.parse(data);
+                app.all('*', function (req, res, next) {
+                    res.header('Access-Control-Allow-Origin', '*');
+                    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With');
+                    res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
+                    if (req.method == 'OPTIONS') {
+                        res.send(200); /让options请求快速返回/
+                    } else {
+                        next();
+                    }
+                });
                 for (let url in this.config) {
                     let v = this.config[url];
                     app[v.method](url, function (req, res) {
-                        res.header('Access-Control-Allow-Origin', '*');
-                        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-                        res.header('Access-Control-Allow-Headers', 'Content-Type');
-                        res.header('Access-Control-Allow-Credentials', 'true');
+                        // res.header('Access-Control-Allow-Origin', '*');
+                        // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+                        // res.header('Access-Control-Allow-Headers', 'Content-Type');
+                        // res.header('Access-Control-Allow-Credentials', 'true');
                         let obj = v.returnvalue;
                         console.log(req.query)
                         console.log(req.body)
-                        let query = req.method ==='GET'?req.query:req.body;
+                        let query = req.method === 'GET' ? req.query : req.body;
                         let temp = {};
                         for (let key in query) {
                             temp[key] = query[key];

@@ -1,12 +1,15 @@
-# 下载 V1.0.9 #
+# 下载 V1.0.11 #
 本工具下载地址：
 
-[https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe)
+[全量安装包下载(34.1MB)](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe)
 
+
+[增量更新安装包下载(1.71MB)](https://raw.githubusercontent.com/tianxiangbing/mock/download/resource.exe)
 
 ## [返回首页](https://tianxiangbing.github.io/mock/ "https://tianxiangbing.github.io/mock/")
 
 # 历史版本
+- [1.0.10](https://github.com/tianxiangbing/mock/raw/1.0.10/download/mock.exe "1.0.10")
 - [1.0.9](https://github.com/tianxiangbing/mock/raw/1.0.9/download/mock.exe "1.0.9")
 - [1.0.8](https://github.com/tianxiangbing/mock/raw/1.0.8/download/mock.exe "1.0.8")
 - [1.0.7](https://github.com/tianxiangbing/mock/raw/1.0.7/download/mock.exe "1.0.7")
