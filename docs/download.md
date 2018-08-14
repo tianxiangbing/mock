@@ -1,6 +1,6 @@
-# 下载 V1.0.11 #
+# 下载 V2.0.2 #
 本工具下载地址：
-
+## 本次改版为大改版，更换应用名为icestar，功能更快更方便.
 [全量安装包下载(36.7MB)](https://github.com/tianxiangbing/icestar/releases/download/2.0.2/icestar.exe)
 
 
