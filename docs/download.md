@@ -1,10 +1,9 @@
 # 下载 V1.0.11 #
 本工具下载地址：
 
-[全量安装包下载(34.1MB)](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe)
+[全量安装包下载(36.7MB)](https://github.com/tianxiangbing/icestar/releases/download/2.0.2/icestar.exe)
 
 
-[增量更新安装包下载(1.71MB)](https://raw.githubusercontent.com/tianxiangbing/mock/download/resource.exe)
 
 ## [返回首页](https://tianxiangbing.github.io/mock/ "https://tianxiangbing.github.io/mock/")
 
