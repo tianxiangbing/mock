@@ -2,6 +2,8 @@
 该工具可以模拟本地的http服务后端接口，以方便前端联调接口，支持多种请求类型，自定义url和参数。针对由socket.io和websocket的推送服务进行的不同的支持。
 socket.io的服务直接基于当前的http服务，websocket服务要设置不同的端口号。调用方式与官方接口一致。
 
+
+[新版icestar工具下载](https://github.com/tianxiangbing/icestar/releases/download/2.0.3/icestar.exe)
 本工具下载地址：
 [https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe)
 
