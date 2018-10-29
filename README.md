@@ -4,8 +4,10 @@ socket.io的服务直接基于当前的http服务，websocket服务要设置不�
 
 
 [新版icestar工具下载](https://github.com/tianxiangbing/icestar/releases/download/2.0.3/icestar.exe)
-本工具下载地址：
+MOCK工具(64位)下载地址：
 [https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe)
+MOCK工具(32位)下载地址：
+[https://raw.githubusercontent.com/tianxiangbing/mock/download/mock-32.exe](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock-32.exe)
 
 ## 功能预览
 ![](imgs/step.jpg)
