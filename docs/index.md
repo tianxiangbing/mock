@@ -3,8 +3,7 @@
 socket.io的服务直接基于当前的http服务，websocket服务要设置不同的端口号。调用方式与官方接口一致。
 
 本工具下载地址：
-
-[https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe](https://raw.githubusercontent.com/tianxiangbing/mock/download/mock.exe)
+[https://raw.githubusercontent.com/tianxiangbing/mock/master/download/mock.exe](https://raw.githubusercontent.com/tianxiangbing/mock/master/download/mock.exe)
 
 ## [历史版本下载](https://tianxiangbing.github.io/mock/download)
 
