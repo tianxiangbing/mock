@@ -535,10 +535,10 @@ a.button:hover{
     height:30px;
     border-radius: 15px;
 }
-#holder{
+#holder,#holder_menu{
     border:2px dashed #ccc;
     margin:10px;
-    padding:5px;
+    padding:10px;
     min-height: 40px;
 }
 .w200{

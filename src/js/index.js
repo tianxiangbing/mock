@@ -15,6 +15,8 @@ let com = require('./lib/common');
 let httpserver = require('./lib/httpserver');
 let https = require('./lib/https');
 let Socket = require('./lib/socket');
+let tansfer = require('./lib/menutosql')
+const ipc = require('electron').ipcRenderer;
 const crypto = require('crypto');
 const fs = require('fs');
 var Index = {
@@ -121,6 +123,25 @@ var Index = {
                         throw (err)
                     }
                 })
+            }
+            return false;
+        }
+        const holder_menu= document.getElementById('holder_menu');
+        holder_menu.ondragover = () => {
+            return false;
+        }
+        holder_menu.ondragleave = holder.ondragend = () => {
+            return false;
+        }
+        holder_menu.ondrop = (e) => {
+            e.preventDefault()
+            html = '';
+            for (let f of e.dataTransfer.files) {
+                console.log('File(s) you dragged here: ', f.path)
+                tansfer.tansfer(f.path,document.getElementById('applId').value).then(res=>{
+                    console.log(res)
+                    ipc.send('open-file-save-dialog',res)
+                });
             }
             return false;
         }

@@ -32,6 +32,7 @@ function openWindow() {
     });
     // win.webContents.openDevTools();
     let p = path.join(os.homedir(), 'config.json');
+    console.log(path.join(__dirname, '/mock/config.json'),111,p)
     fs.exists(p, (ex) => {
         console.log(ex)
         if (!ex) {
@@ -61,6 +62,7 @@ app.on('window-all-closed', function () {
 });
 const ipc = electron.ipcMain;
 const dialog = electron.dialog;
+const shell = electron.shell;
 
 ipc.on('open-dir-dialog', function (event) {
     dialog.showOpenDialog({
@@ -78,6 +80,25 @@ ipc.on('open-file-dialog',(event,key,ext)=>{
         console.log(key,files);
         if (files) event.sender.send(key, files)
     })
+});
+ipc.on('open-file-save-dialog',(event,content)=>{
+    // dialog.showSaveDialog({}).then(result => {
+    // if (!result.canceled) {
+    //     fs.writeFile(result.filePath, content, (err) => {
+    //     if (err) throw err;
+    //     console.log('文件已被保存');
+    //     });
+    // }
+    // });
+    dialog.showSaveDialog(win, { defaultPath: 'menu.sql',}, function (filename) {
+        if (filename) {
+          fs.writeFile(filename, content, (err) => {
+            if (err) throw err;
+            console.log('文件已被保存');
+            shell.openItem(filename)
+          });
+        }
+      });
 });
 ipc.on('go-main', function (event) {
     console.log(event)

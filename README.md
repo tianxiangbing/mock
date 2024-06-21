@@ -57,6 +57,9 @@ MOCK工具(32位)下载地址：
 10. 新增md5文件加密
 11. 新增修改exe的icon图标
 12. 接口文档快速转换成json格式
-
+13. 拖入menu文件，填入applId，生成sql
+![](imgs/menutosql.png)
+ ----------------------------------------
+ 
 ![](imgs/importjson.jpg)
 ![](imgs/importjson-2.jpg)

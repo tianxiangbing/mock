@@ -28,6 +28,7 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Ad
 [Files]
 ; 应用Mock客户端本身的内容    
 Source: "out/mock-win32-ia32/*"; DestDir: "{app}"           
+Source: "out/mock-win32-ia32/locales/*"; DestDir: "{app}/locales"           
 Source: "out/mock-win32-ia32/resources/*"; DestDir: "{app}/resources"     
 Source: "out/mock-win32-ia32/resources/app.asar.unpacked/node_modules/rcedit/*"; DestDir: "{app}/resources/app.asar.unpacked/node_modules/rcedit"       
 Source: "out/mock-win32-ia32/resources/app.asar.unpacked/node_modules/rcedit/bin/*"; DestDir: "{app}/resources/app.asar.unpacked/node_modules/rcedit/bin"  

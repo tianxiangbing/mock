@@ -1,3 +1,12 @@
+/*
+ * @Author: 田想兵
+ * @Date: 2018-11-20 17:27:20
+ * @LastEditTime: 2023-11-20 15:47:40
+ * @github: https://github.com/tianxiangbing
+ * @Contact: 55342775@qq.com
+ * @vx: tianxiangbing
+ * @Desc: 文件描述
+ */
 
 var $ = require('jquery');
 let com = require('./lib/common');
@@ -69,7 +78,7 @@ let ImportJson={
                         break;
                     }
                     default:{
-                        json[fieldvalue[0]] = '';
+                        json[fieldvalue[0]] = fieldvalue[1];
                         break;
                     }
                 }
